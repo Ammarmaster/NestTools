@@ -1,7 +1,8 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { Wrench, ShieldCheck, Zap, Heart, CheckCircle2, ExternalLink } from 'lucide-react';
+import { ShieldCheck, Zap, Heart, CheckCircle2, ExternalLink } from 'lucide-react';
+import { BrandLogo } from '@/components/ui/BrandLogo';
 
 export const metadata: Metadata = {
   title: 'About ToolNest – Mission, Privacy & Architecture | A ProDevOpz Product',
@@ -16,9 +17,7 @@ export default function AboutPage() {
       <div className="space-y-10">
         <div className="rounded-3xl border border-zinc-200 bg-white p-8 sm:p-12 dark:border-zinc-800 dark:bg-zinc-900/60 shadow-xs">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-600 text-white">
-              <Wrench className="h-6 w-6" />
-            </div>
+            <BrandLogo size={48} />
 
             <a
               href="https://prodevopz.jobsio.in"

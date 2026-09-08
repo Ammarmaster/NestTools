@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { CATEGORY_LIST } from '@/data/categories';
-import { Wrench, Heart, ShieldCheck, ExternalLink } from 'lucide-react';
+import { Heart, ShieldCheck, ExternalLink } from 'lucide-react';
+import { BrandLogo } from '@/components/ui/BrandLogo';
 
 export const Footer: React.FC = () => {
   return (
@@ -11,10 +12,8 @@ export const Footer: React.FC = () => {
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex flex-wrap items-center gap-3">
-              <Link href="/" className="flex items-center gap-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-indigo-600 text-white">
-                  <Wrench className="h-4 w-4" />
-                </div>
+              <Link href="/" className="flex items-center gap-2.5">
+                <BrandLogo size={34} />
                 <span className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
                   Tool<span className="text-indigo-600 dark:text-indigo-400">Nest</span>
                 </span>

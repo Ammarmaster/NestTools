@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { Wrench, Home, Search, ArrowRight } from 'lucide-react';
+import { Home, Search, ArrowRight } from 'lucide-react';
+import { BrandLogo } from '@/components/ui/BrandLogo';
 import { getPopularTools } from '@/data/tools';
 import { ToolCard } from '@/components/tools/ToolCard';
 
@@ -9,8 +10,8 @@ export default function NotFound() {
 
   return (
     <div className="w-full max-w-4xl mx-auto py-12 text-center">
-      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-indigo-50 text-indigo-600 dark:bg-zinc-800 dark:text-indigo-400 mb-6">
-        <Wrench className="h-8 w-8" />
+      <div className="mx-auto flex justify-center mb-6">
+        <BrandLogo size={64} />
       </div>
 
       <span className="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">

@@ -1,0 +1,26 @@
+{
+  "name": "ToolNest – 1,000+ Free Online Tools",
+  "short_name": "ToolNest",
+  "description": "1,000+ fast, free, browser-based online tools for students, developers & everyday tasks by ProDevOpz.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

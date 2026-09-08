@@ -11,7 +11,6 @@ import {
   Search,
   Menu,
   X,
-  Wrench,
   Heart,
   Grid,
   ChevronDown,
@@ -20,6 +19,7 @@ import {
   ExternalLink,
   UserCheck,
 } from 'lucide-react';
+import { BrandLogo } from '@/components/ui/BrandLogo';
 import { getFavorites } from '@/lib/storage';
 
 export const Header: React.FC = () => {
@@ -66,9 +66,7 @@ export const Header: React.FC = () => {
           <div className="flex items-center gap-4 sm:gap-6">
             <div className="flex items-center gap-2.5">
               <Link href="/" className="group flex items-center gap-2.5">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-linear-to-br from-indigo-500 to-indigo-600 text-white shadow-md shadow-indigo-500/20 transition-transform duration-200 group-hover:scale-105">
-                  <Wrench className="h-4 w-4" />
-                </div>
+                <BrandLogo size={38} />
                 <div className="flex flex-col">
                   <span className="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-50 leading-none">
                     Tool<span className="text-indigo-600 dark:text-indigo-400">Nest</span>

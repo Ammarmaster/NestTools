@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <linearGradient id="tGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0066ff"/>
+      <stop offset="100%" stop-color="#0052cc"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d2ff"/>
+      <stop offset="100%" stop-color="#0066ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Squircle Base -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)"/>
+  <rect width="504" height="504" x="4" y="4" rx="124" stroke="#e2e8f0" stroke-width="4" fill="none"/>
+
+  <!-- Horn -->
+  <path d="M350 220 L446 96 L376 172 Z" fill="url(#cyanGrad)"/>
+
+  <!-- Primary T Stem & Bar -->
+  <path d="M100 144 C100 135 107 128 116 128 L350 128 C358 128 364 135 364 144 L364 180 C364 188 358 194 350 194 L220 194 L220 380 C220 395 208 406 194 406 L126 406 C112 406 100 395 100 380 Z" fill="url(#tGrad)"/>
+
+  <!-- Unicorn Mane & Contour Curve -->
+  <path d="M220 280 C220 230 260 190 320 190 C340 190 360 200 380 220 C360 250 340 300 366 410 C340 380 320 330 290 310 C260 290 230 310 220 380 Z" fill="url(#cyanGrad)"/>
+
+  <!-- Unicorn Head Silhouette -->
+  <path d="M336 170 C348 150 364 140 364 140 C364 140 354 160 350 178 C366 182 390 196 408 224 C422 246 416 270 396 286 C376 302 344 300 324 286 C300 270 290 240 300 216 C308 196 324 182 336 170 Z" fill="#ffffff"/>
+
+  <!-- Eye -->
+  <ellipse cx="356" cy="222" rx="10" ry="14" transform="rotate(-25 356 222)" fill="#0052cc"/>
+</svg>
