@@ -6,6 +6,7 @@ import { Header } from '@/components/layout/Header';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { Footer } from '@/components/layout/Footer';
 import { MobileBottomNav } from '@/components/layout/MobileBottomNav';
+import { getBaseUrl } from '@/lib/site-config';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -17,8 +18,10 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+const siteUrl = getBaseUrl();
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://toolnest.app'),
+  metadataBase: new URL(siteUrl),
   title: {
     default: 'ToolNest – 1,000+ Free Online Tools for Students, Developers & Everyday Tasks',
     template: '%s | ToolNest',
@@ -46,7 +49,7 @@ export const metadata: Metadata = {
     'prodevopz',
   ],
   authors: [
-    { name: 'Md Jalaluddin Master (Ammar Master)', url: 'https://toolnest.app/founder' },
+    { name: 'Md Jalaluddin Master (Ammar Master)', url: `${siteUrl}/founder` },
     { name: 'ProDevOpz', url: 'https://prodevopz.jobsio.in' }
   ],
   creator: 'Md Jalaluddin Master (Ammar Master)',
@@ -54,7 +57,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://toolnest.app',
+    url: siteUrl,
     siteName: 'ToolNest – A Product by ProDevOpz',
     title: 'ToolNest – 1,000+ Free Online Tools | By ProDevOpz',
     description: '1,000+ fast, free tools that work directly in your browser without signup or server tracking. Engineered by ProDevOpz.',

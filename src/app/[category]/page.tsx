@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     openGraph: {
       title: `${cat.name} | ToolNest`,
       description: cat.description,
-      url: `https://toolnest.app/${cat.slug}`,
+      url: `/${cat.slug}`,
     },
   };
 }

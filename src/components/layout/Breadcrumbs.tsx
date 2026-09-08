@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ChevronRight, Home } from 'lucide-react';
+import { getBaseUrl } from '@/lib/site-config';
 
 export interface BreadcrumbItem {
   name: string;
@@ -12,6 +13,8 @@ interface BreadcrumbsProps {
 }
 
 export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
+  const baseUrl = getBaseUrl();
+
   // Schema.org BreadcrumbList JSON-LD
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -21,13 +24,13 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://toolnest.app',
+        item: baseUrl,
       },
       ...items.map((item, index) => ({
         '@type': 'ListItem',
         position: index + 2,
         name: item.name,
-        item: `https://toolnest.app${item.url}`,
+        item: `${baseUrl}${item.url}`,
       })),
     ],
   };

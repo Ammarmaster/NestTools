@@ -23,6 +23,9 @@ import {
   FileCode,
   Compass
 } from 'lucide-react';
+import { getBaseUrl } from '@/lib/site-config';
+
+const baseUrl = getBaseUrl();
 
 export const metadata: Metadata = {
   title: 'Ammar Master (Mohammad Jalaluddin Master) – Founder at ProDevOpz & ToolNest',
@@ -50,13 +53,13 @@ export const metadata: Metadata = {
     title: 'Ammar Master (Mohammad Jalaluddin Master) – Founder at ProDevOpz',
     description:
       'Official profile of Ammar Master (Mohammad Jalaluddin Master), Founder & Chief Product Architect at ProDevOpz and creator of ToolNest.',
-    url: 'https://toolnest.app/ammar-master',
+    url: '/ammar-master',
     siteName: 'ToolNest – A Product by ProDevOpz',
     locale: 'en_US',
     type: 'profile',
     images: [
       {
-        url: 'https://toolnest.app/images/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg',
+        url: `${baseUrl}/images/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg`,
         width: 1080,
         height: 960,
         alt: 'Ammar Master (Mohammad Jalaluddin Master) – Founder and Chief Product Architect at ProDevOpz',
@@ -68,7 +71,7 @@ export const metadata: Metadata = {
     title: 'Ammar Master (Mohammad Jalaluddin Master) – Founder at ProDevOpz',
     description:
       'Official profile of Ammar Master (Mohammad Jalaluddin Master), Founder & Chief Product Architect at ProDevOpz.',
-    images: ['https://toolnest.app/images/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg'],
+    images: [`${baseUrl}/images/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg`],
   },
 };
 
@@ -83,13 +86,13 @@ export default function AmmarMasterPage() {
     '@graph': [
       {
         '@type': 'ProfilePage',
-        '@id': 'https://toolnest.app/ammar-master#webpage',
-        url: 'https://toolnest.app/ammar-master',
+        '@id': `${baseUrl}/ammar-master#webpage`,
+        url: `${baseUrl}/ammar-master`,
         name: 'Ammar Master (Mohammad Jalaluddin Master) – Official Profile & Portfolio',
         isPartOf: {
           '@type': 'WebSite',
-          '@id': 'https://toolnest.app/#website',
-          url: 'https://toolnest.app',
+          '@id': `${baseUrl}/#website`,
+          url: baseUrl,
           name: 'ToolNest',
           publisher: {
             '@type': 'Organization',
@@ -97,12 +100,12 @@ export default function AmmarMasterPage() {
             url: 'https://prodevopz.jobsio.in',
           },
         },
-        about: { '@id': 'https://toolnest.app/ammar-master#person' },
-        mainEntity: { '@id': 'https://toolnest.app/ammar-master#person' },
+        about: { '@id': `${baseUrl}/ammar-master#person` },
+        mainEntity: { '@id': `${baseUrl}/ammar-master#person` },
       },
       {
         '@type': 'Person',
-        '@id': 'https://toolnest.app/ammar-master#person',
+        '@id': `${baseUrl}/ammar-master#person`,
         name: 'Mohammad Jalaluddin Master',
         alternateName: [
           'Ammar Master',
@@ -114,10 +117,10 @@ export default function AmmarMasterPage() {
         familyName: 'Master',
         additionalName: 'Ammar',
         jobTitle: 'Founder & Chief Product Architect',
-        image: 'https://toolnest.app/images/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg',
+        image: `${baseUrl}/images/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg`,
         description:
           'Ammar Master (Mohammad Jalaluddin Master) is a visionary software engineer, product architect, and founder of ToolNest and lead at ProDevOpz (prodevopz.jobsio.in), dedicated to building high-speed, private, client-side web platforms.',
-        url: 'https://toolnest.app/ammar-master',
+        url: `${baseUrl}/ammar-master`,
         worksFor: {
           '@type': 'Organization',
           name: 'ProDevOpz',
@@ -133,7 +136,7 @@ export default function AmmarMasterPage() {
         ],
         sameAs: [
           'https://prodevopz.jobsio.in',
-          'https://toolnest.app/founder',
+          `${baseUrl}/founder`,
           'https://github.com/Ammarmaster',
         ],
       },

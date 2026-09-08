@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: tool.seoTitle,
       description: tool.seoDescription,
-      url: `https://toolnest.app/${tool.category}/${tool.slug}`,
+      url: `/${tool.category}/${tool.slug}`,
       siteName: 'ToolNest',
       locale: 'en_US',
       type: 'website',

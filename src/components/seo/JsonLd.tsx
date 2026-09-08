@@ -1,16 +1,19 @@
 import React from 'react';
 import { ToolDefinition } from '@/types/tool';
+import { getBaseUrl } from '@/lib/site-config';
 
 interface JsonLdProps {
   tool: ToolDefinition;
 }
 
 export const ToolJsonLd: React.FC<JsonLdProps> = ({ tool }) => {
+  const baseUrl = getBaseUrl();
+
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: tool.name,
-    url: `https://toolnest.app/${tool.category}/${tool.slug}`,
+    url: `${baseUrl}/${tool.category}/${tool.slug}`,
     description: tool.seoDescription,
     applicationCategory: tool.category,
     operatingSystem: 'Any',
@@ -23,7 +26,7 @@ export const ToolJsonLd: React.FC<JsonLdProps> = ({ tool }) => {
     author: {
       '@type': 'Organization',
       name: 'ToolNest',
-      url: 'https://toolnest.app',
+      url: baseUrl,
     },
   };
 

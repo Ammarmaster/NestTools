@@ -21,6 +21,9 @@ import {
   Briefcase,
   Cpu
 } from 'lucide-react';
+import { getBaseUrl } from '@/lib/site-config';
+
+const baseUrl = getBaseUrl();
 
 export const metadata: Metadata = {
   title: 'Ammar Master (Mohammad Jalaluddin Master) – Founder & Chief Architect at ProDevOpz | ToolNest',
@@ -50,13 +53,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Ammar Master (Mohammad Jalaluddin Master) – Founder at ProDevOpz | ToolNest',
     description: 'Founder & Chief Product Architect at ProDevOpz and architect of ToolNest (1,000+ free online tools). Dedicated to private, client-side web software.',
-    url: 'https://toolnest.app/founder',
+    url: '/founder',
     siteName: 'ToolNest – A Product by ProDevOpz',
     locale: 'en_US',
     type: 'profile',
     images: [
       {
-        url: 'https://toolnest.app/images/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg',
+        url: `${baseUrl}/images/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg`,
         width: 1080,
         height: 960,
         alt: 'Ammar Master (Mohammad Jalaluddin Master) – Founder and Chief Product Architect at ProDevOpz',
@@ -67,7 +70,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Ammar Master (Mohammad Jalaluddin Master) – Founder at ProDevOpz',
     description: 'Founder & Chief Product Architect at ProDevOpz and architect of ToolNest (1,000+ free online tools).',
-    images: ['https://toolnest.app/images/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg'],
+    images: [`${baseUrl}/images/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg`],
   },
 };
 
@@ -83,13 +86,13 @@ export default function FounderPage() {
     '@graph': [
       {
         '@type': 'ProfilePage',
-        '@id': 'https://toolnest.app/founder#webpage',
-        url: 'https://toolnest.app/founder',
+        '@id': `${baseUrl}/founder#webpage`,
+        url: `${baseUrl}/founder`,
         name: 'Ammar Master (Mohammad Jalaluddin Master) – Founder & Chief Product Architect',
         isPartOf: {
           '@type': 'WebSite',
-          '@id': 'https://toolnest.app/#website',
-          url: 'https://toolnest.app',
+          '@id': `${baseUrl}/#website`,
+          url: baseUrl,
           name: 'ToolNest',
           publisher: {
             '@type': 'Organization',
@@ -97,12 +100,12 @@ export default function FounderPage() {
             url: 'https://prodevopz.jobsio.in',
           },
         },
-        about: { '@id': 'https://toolnest.app/founder#person' },
-        mainEntity: { '@id': 'https://toolnest.app/founder#person' },
+        about: { '@id': `${baseUrl}/founder#person` },
+        mainEntity: { '@id': `${baseUrl}/founder#person` },
       },
       {
         '@type': 'Person',
-        '@id': 'https://toolnest.app/founder#person',
+        '@id': `${baseUrl}/founder#person`,
         name: 'Mohammad Jalaluddin Master',
         alternateName: [
           'Ammar Master',
@@ -114,10 +117,10 @@ export default function FounderPage() {
         familyName: 'Master',
         additionalName: 'Ammar',
         jobTitle: 'Founder & Chief Product Architect',
-        image: 'https://toolnest.app/images/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg',
+        image: `${baseUrl}/images/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg`,
         description:
           'Ammar Master (Mohammad Jalaluddin Master) is a software engineer, systems architect, and founder of ToolNest and lead at ProDevOpz (prodevopz.jobsio.in), pioneering client-side privacy-first web utility software.',
-        url: 'https://toolnest.app/founder',
+        url: `${baseUrl}/founder`,
         worksFor: {
           '@type': 'Organization',
           name: 'ProDevOpz',
@@ -136,7 +139,7 @@ export default function FounderPage() {
         sameAs: [
           'https://prodevopz.jobsio.in',
           'https://github.com/Ammarmaster',
-          'https://toolnest.app/ammar-master',
+          `${baseUrl}/ammar-master`,
         ],
       },
       {
