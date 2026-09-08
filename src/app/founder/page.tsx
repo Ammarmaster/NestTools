@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { 
   Sparkles, 
@@ -15,41 +16,58 @@ import {
   Award,
   ArrowRight,
   Globe,
-  ExternalLink
+  ExternalLink,
+  UserCheck,
+  Briefcase,
+  Cpu
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Meet the Founder: Md Jalaluddin Master (Ammar Master) | ToolNest',
+  title: 'Ammar Master (Mohammad Jalaluddin Master) – Founder & Chief Architect at ProDevOpz | ToolNest',
   description:
-    'Learn about Md Jalaluddin Master (aka Ammar Master), founder and chief architect of ToolNest. Discover why ToolNest was created to provide 1,000+ free, private, client-side online tools.',
+    'Official biography of Ammar Master (Mohammad Jalaluddin Master), Founder & Chief Product Architect at ProDevOpz and creator of ToolNest. Explore his background, vision, and 1,000+ free online tools.',
   keywords: [
-    'Md Jalaluddin Master',
     'Ammar Master',
-    'Md Jalaluddin Master ToolNest',
-    'Ammar Master ToolNest',
+    'Mohammad Jalaluddin Master',
+    'Md Jalaluddin Master',
+    'Jalaluddin Master',
+    'Ammar Master ProDevOpz',
+    'Mohammad Jalaluddin Master ProDevOpz',
+    'ProDevOpz founder',
     'ToolNest founder',
     'creator of ToolNest',
     'who made ToolNest',
-    'ToolNest story',
+    'who is Ammar Master',
+    'Ammar Master software engineer',
+    'Ammar Master portfolio',
+    'Ammar Master biography',
     'privacy first tools',
-    'free online tools founder',
-    'software engineer online tools',
+    'client-side web tools',
   ],
   alternates: {
     canonical: '/founder',
   },
   openGraph: {
-    title: 'Meet the Founder: Md Jalaluddin Master (Ammar Master) – ToolNest',
-    description: 'The story and mission behind ToolNest: 1,000+ free, private, client-side online tools for students, developers, and creators worldwide.',
+    title: 'Ammar Master (Mohammad Jalaluddin Master) – Founder at ProDevOpz | ToolNest',
+    description: 'Founder & Chief Product Architect at ProDevOpz and architect of ToolNest (1,000+ free online tools). Dedicated to private, client-side web software.',
     url: 'https://toolnest.app/founder',
-    siteName: 'ToolNest',
+    siteName: 'ToolNest – A Product by ProDevOpz',
     locale: 'en_US',
     type: 'profile',
+    images: [
+      {
+        url: 'https://toolnest.app/images/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg',
+        width: 1080,
+        height: 960,
+        alt: 'Ammar Master (Mohammad Jalaluddin Master) – Founder and Chief Product Architect at ProDevOpz',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Meet the Founder: Md Jalaluddin Master (Ammar Master) – ToolNest',
-    description: 'Why ToolNest was built: A mission to make the web fast, private, and free for everyone.',
+    title: 'Ammar Master (Mohammad Jalaluddin Master) – Founder at ProDevOpz',
+    description: 'Founder & Chief Product Architect at ProDevOpz and architect of ToolNest (1,000+ free online tools).',
+    images: ['https://toolnest.app/images/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg'],
   },
 };
 
@@ -59,33 +77,97 @@ export default function FounderPage() {
     { name: 'Meet the Founder', url: '/founder' },
   ];
 
-  // Person Structured Data (Schema.org) for Search Engine Ranking
+  // Comprehensive Person & ProfilePage Structured Data (Schema.org) for Search Engine Top Ranking
   const personJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Md Jalaluddin Master',
-    alternateName: 'Ammar Master',
-    jobTitle: 'Founder & Chief Product Architect',
-    worksFor: {
-      '@type': 'Organization',
-      name: 'ProDevOpz',
-      url: 'https://prodevopz.jobsio.in',
-    },
-    description:
-      'Md Jalaluddin Master (also known as Ammar Master) is the founder and lead architect of ToolNest, an engineering product by ProDevOpz (prodevopz.jobsio.in) featuring 1,000+ free online tools.',
-    knowsAbout: [
-      'Full-Stack Web Architecture',
-      'Client-Side Cryptography',
-      'PDF & OpenXML Processing',
-      'High-Performance Frontend Systems',
-      'SEO Engineering',
-      'Developer Productivity Tools',
-    ],
-    sameAs: [
-      'https://prodevopz.jobsio.in',
-      'https://github.com',
-      'https://linkedin.com',
-      'https://x.com',
+    '@graph': [
+      {
+        '@type': 'ProfilePage',
+        '@id': 'https://toolnest.app/founder#webpage',
+        url: 'https://toolnest.app/founder',
+        name: 'Ammar Master (Mohammad Jalaluddin Master) – Founder & Chief Product Architect',
+        isPartOf: {
+          '@type': 'WebSite',
+          '@id': 'https://toolnest.app/#website',
+          url: 'https://toolnest.app',
+          name: 'ToolNest',
+          publisher: {
+            '@type': 'Organization',
+            name: 'ProDevOpz',
+            url: 'https://prodevopz.jobsio.in',
+          },
+        },
+        about: { '@id': 'https://toolnest.app/founder#person' },
+        mainEntity: { '@id': 'https://toolnest.app/founder#person' },
+      },
+      {
+        '@type': 'Person',
+        '@id': 'https://toolnest.app/founder#person',
+        name: 'Mohammad Jalaluddin Master',
+        alternateName: [
+          'Ammar Master',
+          'Md Jalaluddin Master',
+          'Jalaluddin Master',
+          'Ammar',
+        ],
+        givenName: 'Mohammad Jalaluddin',
+        familyName: 'Master',
+        additionalName: 'Ammar',
+        jobTitle: 'Founder & Chief Product Architect',
+        image: 'https://toolnest.app/images/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg',
+        description:
+          'Ammar Master (Mohammad Jalaluddin Master) is a software engineer, systems architect, and founder of ToolNest and lead at ProDevOpz (prodevopz.jobsio.in), pioneering client-side privacy-first web utility software.',
+        url: 'https://toolnest.app/founder',
+        worksFor: {
+          '@type': 'Organization',
+          name: 'ProDevOpz',
+          url: 'https://prodevopz.jobsio.in',
+        },
+        knowsAbout: [
+          'Full-Stack Web Architecture',
+          'Client-Side Cryptography',
+          'PDF & Document Processing (OpenXML)',
+          'Next.js & React Performance Optimization',
+          'Search Engine Optimization (SEO)',
+          'High-Performance Frontend Systems',
+          'Developer Productivity Tools',
+          'Cloud & DevOps',
+        ],
+        sameAs: [
+          'https://prodevopz.jobsio.in',
+          'https://github.com/Ammarmaster',
+          'https://toolnest.app/ammar-master',
+        ],
+      },
+      {
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Who is Ammar Master (Mohammad Jalaluddin Master)?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Ammar Master (also known as Mohammad Jalaluddin Master or Md Jalaluddin Master) is a software engineer and founder of ToolNest, an internet-scale platform featuring 1,000+ free online tools, and Chief Product Architect at ProDevOpz.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'What is ProDevOpz?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'ProDevOpz (prodevopz.jobsio.in) is an engineering platform and ecosystem dedicated to developer utilities, technical career resources, and high-performance client-side web products like ToolNest.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Why did Ammar Master create ToolNest?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Ammar Master created ToolNest to eliminate invasive cloud file uploads, deceptive paywalls, and slow ad-cluttered websites by providing 1,000+ instantaneous, 100% private tools that execute entirely within the user browser.',
+            },
+          },
+        ],
+      },
     ],
   };
 
@@ -104,7 +186,7 @@ export default function FounderPage() {
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <div className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700 dark:border-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300">
               <Sparkles className="h-3.5 w-3.5" />
-              <span>Founder & Creator Story</span>
+              <span>Official Founder Biography</span>
             </div>
 
             <a
@@ -116,34 +198,54 @@ export default function FounderPage() {
               <span>A Product by ProDevOpz</span>
               <ExternalLink className="h-3 w-3" />
             </a>
+
+            <Link
+              href="/ammar-master"
+              className="inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-semibold text-zinc-700 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200 transition-colors shadow-2xs"
+            >
+              <UserCheck className="h-3 w-3 text-indigo-500" />
+              <span>Direct Profile Route: /ammar-master</span>
+            </Link>
           </div>
 
           <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
-            <div className="relative">
-              <div className="h-28 w-28 sm:h-36 sm:w-36 rounded-3xl bg-linear-to-tr from-indigo-600 to-violet-500 p-1 shadow-xl shadow-indigo-500/20">
-                <div className="flex h-full w-full items-center justify-center rounded-[22px] bg-zinc-900 text-white font-mono text-2xl sm:text-3xl font-black tracking-wider">
-                  JM
+            {/* Real Founder Photo */}
+            <div className="relative group shrink-0 mx-auto md:mx-0">
+              <div className="h-44 w-44 sm:h-56 sm:w-56 rounded-3xl overflow-hidden bg-linear-to-tr from-indigo-600 via-indigo-500 to-violet-500 p-1 shadow-2xl shadow-indigo-500/25 ring-1 ring-zinc-200 dark:ring-zinc-800">
+                <div className="relative h-full w-full rounded-[22px] overflow-hidden bg-zinc-900">
+                  <Image
+                    src="/images/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg"
+                    alt="Ammar Master (Mohammad Jalaluddin Master) – Founder and Chief Product Architect at ProDevOpz"
+                    width={500}
+                    height={500}
+                    priority
+                    className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
               </div>
-              <div className="absolute -bottom-2 -right-2 rounded-full bg-emerald-500 p-1.5 text-white ring-4 ring-white dark:ring-zinc-900">
-                <ShieldCheck className="h-4 w-4" />
+              <div 
+                className="absolute -bottom-2.5 -right-2.5 flex items-center gap-1.5 rounded-full bg-emerald-500 px-3 py-1 text-[11px] font-bold text-white shadow-lg ring-4 ring-white dark:ring-zinc-950"
+                title="Verified Founder & Chief Architect"
+              >
+                <ShieldCheck className="h-3.5 w-3.5" />
+                <span>Verified Founder</span>
               </div>
             </div>
 
-            <div className="space-y-3">
-              <div className="flex flex-wrap items-center gap-2">
+            <div className="space-y-3 text-center md:text-left">
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
                 <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-zinc-900 dark:text-zinc-50">
-                  Md Jalaluddin Master
+                  Ammar Master
                 </h1>
-                <span className="rounded-full bg-indigo-500/10 px-2.5 py-0.5 text-xs font-bold text-indigo-600 dark:text-indigo-400">
-                  aka Ammar Master
+                <span className="rounded-full bg-indigo-500/10 px-3 py-1 text-xs font-bold text-indigo-600 dark:text-indigo-400">
+                  Mohammad Jalaluddin Master
                 </span>
               </div>
-              <p className="text-base font-semibold text-indigo-600 dark:text-indigo-400">
-                Founder, Chief Product Architect & Software Engineer
+              <p className="text-sm sm:text-base font-semibold text-indigo-600 dark:text-indigo-400">
+                Founder, Chief Product Architect & Software Engineer at ProDevOpz
               </p>
               <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-300 max-w-xl">
-                Building ToolNest under the <strong>ProDevOpz</strong> umbrella to eliminate slow, ad-ridden, paywalled online calculators and replace them with instantaneous, 100% private, client-side tools for students, engineers, and creators worldwide.
+                Architect and creator of <strong>ToolNest</strong>, built under the <strong>ProDevOpz</strong> ([prodevopz.jobsio.in](https://prodevopz.jobsio.in)) umbrella. Dedicated to engineering high-performance, 100% private, client-side web tools that empower students, software engineers, and digital professionals worldwide without paywalls or tracking.
               </p>
 
               {/* Social / Contact Links */}

@@ -89,6 +89,11 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/ammar-master" className="text-zinc-600 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400 transition-colors">
+                  Ammar Master (Founder Profile)
+                </Link>
+              </li>
+              <li>
                 <a
                   href="https://prodevopz.jobsio.in"
                   target="_blank"

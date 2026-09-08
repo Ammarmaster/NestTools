@@ -24,7 +24,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/founder`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.8,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/ammar-master`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/about`,
