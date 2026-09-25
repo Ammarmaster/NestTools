@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agenticresourcediscovery.org/schemas/v1/ai-catalog.json",
+  "version": "1.0",
+  "name": "ToolNest",
+  "description": "1,000+ fast, free browser-based online tools for students, developers, engineers, and everyday tasks. 100% private, client-side execution.",
+  "homepage": "https://toolnest.jobsio.in",
+  "publisher": {
+    "name": "ProDevOpz",
+    "url": "https://prodevopz.jobsio.in",
+    "founder": "Md Jalaluddin Master (Ammar Master)"
+  },
+  "resources": {
+    "llmsTxt": "https://toolnest.jobsio.in/llms.txt",
+    "llmsFullTxt": "https://toolnest.jobsio.in/llms-full.txt",
+    "sitemap": "https://toolnest.jobsio.in/sitemap.xml",
+    "robots": "https://toolnest.jobsio.in/robots.txt"
+  },
+  "capabilities": {
+    "totalTools": 1030,
+    "clientSideProcessing": true,
+    "requiresAuthentication": false,
+    "privacyGuarantee": "Zero server logging or storage of user inputs"
+  }
+}

@@ -7,6 +7,9 @@ import { BrandLogo } from '@/components/ui/BrandLogo';
 export const metadata: Metadata = {
   title: 'About ToolNest – Mission, Privacy & Architecture | A ProDevOpz Product',
   description: 'Learn about ToolNest: an engineering product by ProDevOpz, founded by Md Jalaluddin Master (Ammar Master), providing 1,000+ free, private online tools.',
+  alternates: {
+    canonical: '/about',
+  },
 };
 
 export default function AboutPage() {

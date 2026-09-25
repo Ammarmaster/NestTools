@@ -1,0 +1,43 @@
+# ToolNest
+
+> 1,000+ fast, free, privacy-first browser-based online tools for students, software engineers, career professionals, and everyday tasks. 100% client-side processing with zero server tracking or login requirements.
+
+ToolNest is an engineering suite developed by Md Jalaluddin Master (Ammar Master) and ProDevOpz (https://prodevopz.jobsio.in). All utilities run directly inside client web browsers using modern web standards (WebAssembly, Canvas, Web Crypto, and TypeScript) without transmitting user files or computations to any external server.
+
+## Tool Categories
+
+- [Student Tools](https://toolnest.jobsio.in/student): Academic calculators including Cumulative CGPA, Semester GPA, Attendance tracker, Grade estimator, Percentage converter, and Pomodoro focus timer.
+- [Career & Job Tools](https://toolnest.jobsio.in/career): Career planning utilities including CTC to In-Hand Salary breakdown, Salary Hike calculator, Notice Period planner, and Resume ATS Keyword Checker.
+- [Developer Tools](https://toolnest.jobsio.in/developer): Software engineering utilities including JSON Formatter & Validator, Base64 Encoder/Decoder, URL Encoder, Hash Generators (SHA-256, MD5, SHA-512), UUID/GUID Generator, and SQL Formatter.
+- [PDF & Document Tools](https://toolnest.jobsio.in/pdf): Client-side document processors including PDF to Word (DOCX) converter, PDF Merger, PDF Splitter, Image Compressor, and QR Code Generator.
+- [Text & Writing Tools](https://toolnest.jobsio.in/text): Real-time Word Counter, Character Counter, Case Converter, Slug Generator, Duplicate Line Remover, and Text Difference Checker.
+- [Math & Calculators](https://toolnest.jobsio.in/math): Scientific Calculator, Percentage Calculator, Fraction Simplifier, LCM/GCD Finder, Statistics Engine, and Probability Solver.
+- [Date & Time Tools](https://toolnest.jobsio.in/date): High-precision Age Calculator, Date Difference Finder, Days Between Dates, Countdown Timer, and Stopwatch.
+- [Unit Converters](https://toolnest.jobsio.in/converter): High-precision conversions for Length, Weight/Mass, Temperature, Volume, Digital Data Storage, Speed, Area, and Time.
+- [Finance & Business](https://toolnest.jobsio.in/finance): Loan EMI Calculator, Compound Interest Calculator, Simple Interest, GST/Sales Tax Calculator, SIP Calculator, and Profit Margin Calculator.
+
+## Most Popular Tools
+
+- [CGPA Calculator](https://toolnest.jobsio.in/student/cgpa-calculator): Calculate Cumulative Grade Point Average across all semesters with weighted credits and percentage conversion.
+- [GPA Calculator](https://toolnest.jobsio.in/student/gpa-calculator): Semester Grade Point Average calculator supporting letter grades (A+, A, B, etc.) and credit hours.
+- [CTC to In-Hand Salary Calculator](https://toolnest.jobsio.in/career/ctc-to-inhand-calculator): Calculate take-home monthly salary from annual CTC with tax and PF deductions.
+- [PDF to Word Converter](https://toolnest.jobsio.in/pdf/pdf-to-word): Convert PDF files to editable DOCX documents directly in the browser with zero server upload.
+- [JSON Formatter](https://toolnest.jobsio.in/developer/json-formatter): Format, validate, inspect, and minify JSON data client-side.
+- [Image Compressor](https://toolnest.jobsio.in/pdf/image-compressor): Compress JPEG, PNG, and WebP images with adjustable quality without loss of clarity.
+- [QR Code Generator](https://toolnest.jobsio.in/pdf/qr-code-generator): Generate downloadable high-resolution QR codes for URLs, text, and Wi-Fi networks.
+- [Age Calculator](https://toolnest.jobsio.in/date/age-calculator): Calculate precise age in years, months, weeks, days, hours, and minutes.
+- [Loan EMI Calculator](https://toolnest.jobsio.in/finance/loan-emi-calculator): Compute monthly home, car, or personal loan EMIs with total interest and amortization table.
+- [Resume ATS Keyword Checker](https://toolnest.jobsio.in/career/resume-ats-checker): Match resume keywords against job descriptions to optimize ATS applicant tracking scores.
+
+## Architecture & Privacy Guarantee
+
+- **Client-Side Execution:** All file conversions (PDF, Images), cryptographic operations (SHA, MD5), and mathematical calculations execute within the user's browser runtime.
+- **Zero Data Retention:** No documents, passwords, or personal parameters are ever logged or uploaded to remote servers.
+- **No Authentication Required:** Instant access to all 1,000+ tools without registration, accounts, or rate limits.
+
+## Agent & Crawler Resources
+
+- [Full LLM Catalog](https://toolnest.jobsio.in/llms-full.txt): Complete uncompressed index of all 1,000+ tools with metadata and endpoints.
+- [Sitemap](https://toolnest.jobsio.in/sitemap.xml): Standard XML sitemap containing all verified indexable routes.
+- [AI Resource Catalog](https://toolnest.jobsio.in/.well-known/ai-catalog.json): Machine-readable Agentic Resource Discovery (ARD) catalog.
+- [Robots Directives](https://toolnest.jobsio.in/robots.txt): Crawler rules allowing all search and autonomous AI indexing bots.

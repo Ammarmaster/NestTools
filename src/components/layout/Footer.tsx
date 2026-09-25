@@ -33,8 +33,8 @@ export const Footer: React.FC = () => {
             <p className="max-w-sm text-sm text-zinc-500 dark:text-zinc-400">
               Free, fast, mobile-friendly online tools for students, software engineers, career professionals, and everyday mathematical tasks. No signup required.
             </p>
-            <div className="flex items-center gap-2 text-xs text-zinc-400 dark:text-zinc-500">
-              <ShieldCheck className="h-4 w-4 text-emerald-500" />
+            <div className="flex items-center gap-2 text-xs font-medium text-zinc-600 dark:text-zinc-400">
+              <ShieldCheck className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
               <span>100% Client-Side Processing • Your Data Never Leaves Your Device</span>
             </div>
           </div>
@@ -68,6 +68,11 @@ export const Footer: React.FC = () => {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link href="/popular-tools" className="font-semibold text-rose-600 hover:text-rose-700 dark:text-rose-400">
+                  ★ Top Popular Tools
+                </Link>
+              </li>
               <li>
                 <Link href="/tools" className="font-semibold text-indigo-600 dark:text-indigo-400">
                   View All 1,000+ Tools &rarr;
@@ -134,13 +139,13 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-zinc-100 pt-8 sm:flex-row dark:border-zinc-900">
-          <p className="text-xs text-zinc-400 dark:text-zinc-500 text-center sm:text-left leading-relaxed">
-            &copy; {new Date().getFullYear()} ToolNest — A product by <a href="https://prodevopz.jobsio.in" target="_blank" rel="noopener noreferrer" className="font-bold text-zinc-600 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 underline decoration-indigo-300">ProDevOpz</a>. Founded & engineered by <strong>Md Jalaluddin Master</strong> (aka <strong>Ammar Master</strong>). Built for speed, privacy, and productivity.
+          <p className="text-xs text-zinc-600 dark:text-zinc-400 text-center sm:text-left leading-relaxed">
+            &copy; {new Date().getFullYear()} ToolNest — A product by <a href="https://prodevopz.jobsio.in" target="_blank" rel="noopener noreferrer" className="font-bold text-zinc-800 dark:text-zinc-200 hover:text-indigo-600 dark:hover:text-indigo-400 underline decoration-indigo-300">ProDevOpz</a>. Founded & engineered by <strong className="text-zinc-800 dark:text-zinc-200">Md Jalaluddin Master</strong> (aka <strong className="text-zinc-800 dark:text-zinc-200">Ammar Master</strong>). Built for speed, privacy, and productivity.
           </p>
-          <div className="flex items-center gap-4 text-xs text-zinc-400 dark:text-zinc-500">
-            <Link href="/privacy" className="hover:underline">Privacy</Link>
-            <Link href="/terms" className="hover:underline">Terms</Link>
-            <Link href="/sitemap.xml" className="hover:underline">Sitemap</Link>
+          <div className="flex items-center gap-4 text-xs font-medium text-zinc-600 dark:text-zinc-400">
+            <Link href="/privacy" className="hover:underline hover:text-indigo-600 dark:hover:text-indigo-400">Privacy</Link>
+            <Link href="/terms" className="hover:underline hover:text-indigo-600 dark:hover:text-indigo-400">Terms</Link>
+            <Link href="/sitemap.xml" className="hover:underline hover:text-indigo-600 dark:hover:text-indigo-400">Sitemap</Link>
           </div>
         </div>
       </div>

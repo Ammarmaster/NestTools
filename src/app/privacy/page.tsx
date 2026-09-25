@@ -6,6 +6,9 @@ import { ShieldCheck } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Privacy Policy – 100% Client-Side Processing | ToolNest',
   description: 'Our privacy commitment: ToolNest processes calculations, texts, resumes, and passwords locally in your browser. We never collect or store your inputs.',
+  alternates: {
+    canonical: '/privacy',
+  },
 };
 
 export default function PrivacyPage() {

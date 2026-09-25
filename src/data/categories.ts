@@ -7,7 +7,7 @@ export const CATEGORIES: Record<CategoryId, CategoryInfo> = {
     slug: 'student',
     description: 'Calculators, GPA estimators, Pomodoro timers, and study assistants built for school and university students.',
     icon: 'GraduationCap',
-    badgeColor: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+    badgeColor: 'bg-amber-50 text-amber-800 border-amber-300 dark:bg-amber-500/10 dark:text-amber-300 dark:border-amber-500/30',
     gradient: 'from-amber-500/20 to-orange-500/20',
   },
   career: {
@@ -16,7 +16,7 @@ export const CATEGORIES: Record<CategoryId, CategoryInfo> = {
     slug: 'career',
     description: 'CTC to in-hand salary breakdowns, salary hike calculators, ATS resume keyword checkers, and career planners.',
     icon: 'Briefcase',
-    badgeColor: 'bg-blue-500/10 text-blue-500 border-blue-500/20',
+    badgeColor: 'bg-blue-50 text-blue-800 border-blue-300 dark:bg-blue-500/10 dark:text-blue-300 dark:border-blue-500/30',
     gradient: 'from-blue-500/20 to-cyan-500/20',
   },
   developer: {
@@ -25,7 +25,7 @@ export const CATEGORIES: Record<CategoryId, CategoryInfo> = {
     slug: 'developer',
     description: 'JSON formatters, SQL beautifiers, Base64/URL encoders, Hash generators, JWT decoders, and Regex testers.',
     icon: 'Code2',
-    badgeColor: 'bg-indigo-500/10 text-indigo-500 border-indigo-500/20',
+    badgeColor: 'bg-indigo-50 text-indigo-800 border-indigo-300 dark:bg-indigo-500/10 dark:text-indigo-300 dark:border-indigo-500/30',
     gradient: 'from-indigo-500/20 to-violet-500/20',
   },
   text: {
@@ -34,7 +34,7 @@ export const CATEGORIES: Record<CategoryId, CategoryInfo> = {
     slug: 'text',
     description: 'Real-time word counters, case transformers, duplicate line strippers, text reversers, and slug generators.',
     icon: 'Type',
-    badgeColor: 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
+    badgeColor: 'bg-emerald-50 text-emerald-800 border-emerald-300 dark:bg-emerald-500/10 dark:text-emerald-300 dark:border-emerald-500/30',
     gradient: 'from-emerald-500/20 to-teal-500/20',
   },
   math: {
@@ -43,7 +43,7 @@ export const CATEGORIES: Record<CategoryId, CategoryInfo> = {
     slug: 'math',
     description: 'Scientific calculators, fraction simplifiers, statistics engines, LCM/GCD, and probability solvers.',
     icon: 'Calculator',
-    badgeColor: 'bg-rose-500/10 text-rose-500 border-rose-500/20',
+    badgeColor: 'bg-rose-50 text-rose-800 border-rose-300 dark:bg-rose-500/10 dark:text-rose-300 dark:border-rose-500/30',
     gradient: 'from-rose-500/20 to-pink-500/20',
   },
   date: {
@@ -52,7 +52,7 @@ export const CATEGORIES: Record<CategoryId, CategoryInfo> = {
     slug: 'date',
     description: 'Precise age calculators, date differences, day counters, stopwatches, countdowns, and world time converters.',
     icon: 'CalendarClock',
-    badgeColor: 'bg-purple-500/10 text-purple-500 border-purple-500/20',
+    badgeColor: 'bg-purple-50 text-purple-800 border-purple-300 dark:bg-purple-500/10 dark:text-purple-300 dark:border-purple-500/30',
     gradient: 'from-purple-500/20 to-indigo-500/20',
   },
   converter: {
@@ -61,7 +61,7 @@ export const CATEGORIES: Record<CategoryId, CategoryInfo> = {
     slug: 'converter',
     description: 'High-precision converters for length, weight, temperature, speed, volume, data storage, and Roman numerals.',
     icon: 'ArrowLeftRight',
-    badgeColor: 'bg-cyan-500/10 text-cyan-500 border-cyan-500/20',
+    badgeColor: 'bg-cyan-50 text-cyan-900 border-cyan-300 dark:bg-cyan-500/10 dark:text-cyan-300 dark:border-cyan-500/30',
     gradient: 'from-cyan-500/20 to-blue-500/20',
   },
   finance: {
@@ -70,7 +70,7 @@ export const CATEGORIES: Record<CategoryId, CategoryInfo> = {
     slug: 'finance',
     description: 'Loan EMI calculators, compound interest planners, GST & sales tax breakdowns, profit margins, and BMI checks.',
     icon: 'DollarSign',
-    badgeColor: 'bg-teal-500/10 text-teal-500 border-teal-500/20',
+    badgeColor: 'bg-teal-50 text-teal-900 border-teal-300 dark:bg-teal-500/10 dark:text-teal-300 dark:border-teal-500/30',
     gradient: 'from-teal-500/20 to-emerald-500/20',
   },
   pdf: {
@@ -79,7 +79,7 @@ export const CATEGORIES: Record<CategoryId, CategoryInfo> = {
     slug: 'pdf',
     description: '100% private, client-side PDF to Word (DOCX), PDF merger, image to PDF, image compression, invoice generation, and QR codes.',
     icon: 'FileText',
-    badgeColor: 'bg-red-500/10 text-red-500 border-red-500/20',
+    badgeColor: 'bg-red-50 text-red-800 border-red-300 dark:bg-red-500/10 dark:text-red-300 dark:border-red-500/30',
     gradient: 'from-red-500/20 to-rose-500/20',
   },
 };

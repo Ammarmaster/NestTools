@@ -15,6 +15,7 @@ import {
   Grid,
   ChevronDown,
   Sparkles,
+  Flame,
   FileText,
   ExternalLink,
   UserCheck,
@@ -71,7 +72,7 @@ export const Header: React.FC = () => {
                   <span className="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-50 leading-none">
                     Tool<span className="text-indigo-600 dark:text-indigo-400">Nest</span>
                   </span>
-                  <span className="text-[10px] font-medium tracking-wider uppercase text-zinc-400 dark:text-zinc-500 mt-0.5">
+                  <span className="text-[10px] font-semibold tracking-wider uppercase text-zinc-600 dark:text-zinc-400 mt-0.5">
                     1,000+ Free Tools
                   </span>
                 </div>
@@ -102,6 +103,18 @@ export const Header: React.FC = () => {
               >
                 <Grid className="h-4 w-4" />
                 <span>All Tools</span>
+              </Link>
+
+              <Link
+                href="/popular-tools"
+                className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
+                  pathname === '/popular-tools'
+                    ? 'bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-50'
+                    : 'text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-zinc-900'
+                }`}
+              >
+                <Flame className="h-4 w-4 text-rose-500" />
+                <span>Popular</span>
               </Link>
 
               <Link
@@ -170,10 +183,10 @@ export const Header: React.FC = () => {
           <button
             type="button"
             onClick={() => setIsSearchOpen(true)}
-            className="flex items-center justify-between w-48 sm:w-72 md:w-80 rounded-xl border border-zinc-200 bg-zinc-50/80 px-3 py-1.5 text-xs text-zinc-400 shadow-2xs transition-all hover:border-zinc-300 hover:bg-white dark:border-zinc-800 dark:bg-zinc-900/60 dark:text-zinc-500 dark:hover:border-zinc-700 dark:hover:bg-zinc-900"
+            className="flex items-center justify-between w-48 sm:w-72 md:w-80 rounded-xl border border-zinc-200 bg-zinc-50/80 px-3 py-1.5 text-xs text-zinc-600 shadow-2xs transition-all hover:border-zinc-300 hover:bg-white dark:border-zinc-800 dark:bg-zinc-900/60 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:bg-zinc-900"
           >
             <div className="flex items-center gap-2">
-              <Search className="h-3.5 w-3.5 text-zinc-400" />
+              <Search className="h-3.5 w-3.5 text-zinc-500 dark:text-zinc-400" />
               <span className="hidden sm:inline">Search 1,000+ tools...</span>
               <span className="sm:hidden">Search tools...</span>
             </div>

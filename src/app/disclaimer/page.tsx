@@ -6,6 +6,9 @@ import { AlertCircle } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Calculator Accuracy Disclaimer | ToolNest',
   description: 'Important legal and accuracy disclaimer regarding ToolNest calculators, financial estimates, health formulas, and tools.',
+  alternates: {
+    canonical: '/disclaimer',
+  },
 };
 
 export default function DisclaimerPage() {

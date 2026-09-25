@@ -30,16 +30,30 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     };
   }
 
+  const currentYear = new Date().getFullYear();
+  const pageTitle = `${cat.name} (${currentYear}) – 100% Free Online Tools | ToolNest`;
+  const pageDescription = `Free online ${cat.name.toLowerCase()} suite with instant calculations, zero server uploads, and no login required. Fast, private, and mobile-ready.`;
+
   return {
-    title: `${cat.name} – Free Online Calculators & Tools | ToolNest`,
-    description: `Explore our collection of free, browser-based ${cat.name.toLowerCase()}. Fast, reliable, mobile-optimized tools with no login required.`,
+    title: pageTitle,
+    description: pageDescription,
     alternates: {
       canonical: `/${cat.slug}`,
     },
     openGraph: {
-      title: `${cat.name} | ToolNest`,
-      description: cat.description,
+      title: pageTitle,
+      description: pageDescription,
       url: `/${cat.slug}`,
+      siteName: 'ToolNest',
+      locale: 'en_US',
+      type: 'website',
+      images: ['/logo.png'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: pageTitle,
+      description: pageDescription,
+      images: ['/logo.png'],
     },
   };
 }
@@ -61,9 +75,32 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     },
   ];
 
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: `${cat.name} - Free Online Tools`,
+    description: cat.description,
+    url: `https://toolnest.jobsio.in/${cat.slug}`,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: tools.slice(0, 30).map((tool, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        name: tool.name,
+        url: `https://toolnest.jobsio.in/${tool.category}/${tool.slug}`,
+        description: tool.description,
+      })),
+    },
+  };
+
   return (
-    <div className="w-full max-w-6xl mx-auto pb-16">
-      <Breadcrumbs items={breadcrumbs} />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+      <div className="w-full max-w-6xl mx-auto pb-16">
+        <Breadcrumbs items={breadcrumbs} />
 
       {/* Category Hero */}
       <div className="mb-10 rounded-3xl border border-zinc-200 bg-linear-to-b from-zinc-50 to-white p-8 sm:p-10 dark:border-zinc-800 dark:from-zinc-900/60 dark:to-zinc-950">
@@ -101,5 +138,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         </div>
       </div>
     </div>
-  );
+  </>
+);
 }

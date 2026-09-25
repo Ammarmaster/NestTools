@@ -10,6 +10,7 @@ import {
   Grid,
   Heart,
   Sparkles,
+  Flame,
   TrendingUp,
   ExternalLink,
 } from 'lucide-react';
@@ -61,6 +62,23 @@ export const Sidebar: React.FC = () => {
           </Link>
 
           <Link
+            href="/popular-tools"
+            className={`flex items-center justify-between rounded-xl px-3 py-2 text-sm font-medium transition-colors ${
+              pathname === '/popular-tools'
+                ? 'bg-white text-zinc-900 shadow-2xs font-semibold dark:bg-zinc-900 dark:text-zinc-50'
+                : 'text-zinc-600 hover:bg-white/60 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-900/60 dark:hover:text-zinc-100'
+            }`}
+          >
+            <div className="flex items-center gap-2.5">
+              <Flame className="h-4 w-4 text-rose-500" />
+              <span>Popular Tools</span>
+            </div>
+            <span className="rounded-full bg-rose-500/10 px-2 py-0.5 text-[10px] font-bold text-rose-500">
+              Hot
+            </span>
+          </Link>
+
+          <Link
             href="/founder"
             className={`flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-medium transition-colors ${
               pathname === '/founder'
@@ -94,7 +112,7 @@ export const Sidebar: React.FC = () => {
 
         {/* Categories Section */}
         <div>
-          <div className="px-3 pb-2 text-[11px] font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+          <div className="px-3 pb-2 text-[11px] font-bold uppercase tracking-wider text-zinc-600 dark:text-zinc-400">
             Categories
           </div>
           <div className="space-y-0.5">

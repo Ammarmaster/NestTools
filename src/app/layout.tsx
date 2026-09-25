@@ -54,6 +54,9 @@ export const metadata: Metadata = {
   ],
   creator: 'Md Jalaluddin Master (Ammar Master)',
   publisher: 'ProDevOpz (prodevopz.jobsio.in)',
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -61,11 +64,20 @@ export const metadata: Metadata = {
     siteName: 'ToolNest – A Product by ProDevOpz',
     title: 'ToolNest – 1,000+ Free Online Tools | By ProDevOpz',
     description: '1,000+ fast, free tools that work directly in your browser without signup or server tracking. Engineered by ProDevOpz.',
+    images: [
+      {
+        url: '/logo.png',
+        width: 512,
+        height: 512,
+        alt: 'ToolNest – 1,000+ Free Online Tools',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'ToolNest – 1,000+ Free Online Tools | By ProDevOpz',
     description: 'Free, fast, mobile-friendly online tools for students, developers, and career tasks. A product by ProDevOpz.',
+    images: ['/logo.png'],
   },
   robots: {
     index: true,
@@ -109,8 +121,54 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'ToolNest',
+    alternateName: ['Tool Nest', 'ToolNest Free Online Tools', 'ToolNest by ProDevOpz'],
+    url: siteUrl,
+    description: '1,000+ fast, free browser-based online tools for students, developers, and career tasks with zero server tracking.',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${siteUrl}/tools?search={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'ToolNest',
+    url: siteUrl,
+    logo: `${siteUrl}/logo.png`,
+    founder: {
+      '@type': 'Person',
+      name: 'Md Jalaluddin Master',
+      alternateName: 'Ammar Master',
+      url: `${siteUrl}/founder`,
+    },
+    parentOrganization: {
+      '@type': 'Organization',
+      name: 'ProDevOpz',
+      url: 'https://prodevopz.jobsio.in',
+    },
+  };
+
   return (
     <html lang="en" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-white text-zinc-900 selection:bg-indigo-500/20 selection:text-indigo-600 dark:bg-zinc-950 dark:text-zinc-100 font-sans pb-20 md:pb-0">
         <ThemeProvider>
           <Header />

@@ -11,6 +11,23 @@ export function GET(request: NextRequest) {
   const robotsTxt = `User-agent: *
 Allow: /
 
+# Autonomous AI Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# LLM & Agent Resource Discovery
+# llms.txt: ${baseUrl}/llms.txt
+# ai-catalog.json: ${baseUrl}/.well-known/ai-catalog.json
+
 Sitemap: ${baseUrl}/sitemap.xml
 `;
 

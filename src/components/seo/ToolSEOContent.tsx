@@ -13,48 +13,8 @@ export const ToolSEOContent: React.FC<ToolSEOContentProps> = ({ tool }) => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const { content } = tool;
 
-  // Schema.org FAQPage structured data
-  const faqJsonLd = content.faqs && content.faqs.length > 0 ? {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: content.faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
-  } : null;
-
-  // Schema.org HowTo structured data for rich snippet ranking
-  const howToJsonLd = content.howToUse && content.howToUse.length > 0 ? {
-    '@context': 'https://schema.org',
-    '@type': 'HowTo',
-    name: `How to Use ${tool.name} Online`,
-    description: tool.description,
-    step: content.howToUse.map((step, idx) => ({
-      '@type': 'HowToStep',
-      position: idx + 1,
-      name: `Step ${idx + 1}`,
-      text: step,
-    })),
-  } : null;
-
   return (
     <div className="mt-12 space-y-10">
-      {faqJsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-        />
-      )}
-      {howToJsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
-        />
-      )}
 
       {/* 1. What is [Tool] Section with exact-match keyword header */}
       <section className="rounded-3xl border border-zinc-200 bg-white p-6 sm:p-8 dark:border-zinc-800 dark:bg-zinc-900/50">

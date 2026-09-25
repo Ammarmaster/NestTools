@@ -73,9 +73,9 @@ export default function HomePage() {
                 onClick={() => setIsSearchOpen(true)}
                 className="group flex w-full items-center justify-between rounded-2xl border border-zinc-300/80 bg-white p-4 text-left shadow-lg shadow-zinc-200/50 transition-all hover:border-indigo-500 hover:shadow-indigo-500/10 dark:border-zinc-700 dark:bg-zinc-900 dark:shadow-none"
               >
-                <div className="flex items-center gap-3 text-zinc-400 dark:text-zinc-500">
-                  <Search className="h-5 w-5 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
-                  <span className="text-sm font-medium text-zinc-400">
+                <div className="flex items-center gap-3 text-zinc-500 dark:text-zinc-400">
+                  <Search className="h-5 w-5 text-zinc-500 group-hover:text-indigo-600 dark:text-zinc-400 dark:group-hover:text-indigo-400 transition-colors" />
+                  <span className="text-sm font-medium text-zinc-600 dark:text-zinc-300">
                     Search 1,000+ tools (e.g. &ldquo;meters to feet&rdquo;, &ldquo;pdf&rdquo;, &ldquo;cgpa&rdquo;, &ldquo;sha256&rdquo;, &ldquo;salary&rdquo;)...
                   </span>
                 </div>
@@ -176,9 +176,10 @@ export default function HomePage() {
             </div>
             <Link
               href="/tools?filter=popular"
+              aria-label="Explore all popular tools"
               className="flex items-center gap-1 text-xs font-semibold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400"
             >
-              <span>See more</span>
+              <span>Explore all popular tools</span>
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>

@@ -35,27 +35,43 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  const cat = CATEGORIES[tool.category];
+  const currentYear = new Date().getFullYear();
+  // CTR Power Title: Adds current year & high-intent trigger to stand out among text-only results
+  let displayTitle = tool.seoTitle;
+  if (!displayTitle.includes(currentYear.toString())) {
+    displayTitle = `${tool.name} (${currentYear}) – Free, Instant & Accurate | ToolNest`;
+  }
+
+  const displayDescription = `${tool.seoDescription} 100% free, private browser-based tool with instant results and no registration.`;
 
   return {
-    title: tool.seoTitle,
-    description: tool.seoDescription,
+    title: displayTitle,
+    description: displayDescription,
     keywords: tool.keywords,
     alternates: {
       canonical: `/${tool.category}/${tool.slug}`,
     },
     openGraph: {
-      title: tool.seoTitle,
-      description: tool.seoDescription,
+      title: displayTitle,
+      description: displayDescription,
       url: `/${tool.category}/${tool.slug}`,
       siteName: 'ToolNest',
       locale: 'en_US',
       type: 'website',
+      images: [
+        {
+          url: '/logo.png',
+          width: 512,
+          height: 512,
+          alt: `${tool.name} – Free Online Tool by ToolNest`,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: tool.seoTitle,
-      description: tool.seoDescription,
+      title: displayTitle,
+      description: displayDescription,
+      images: ['/logo.png'],
     },
   };
 }

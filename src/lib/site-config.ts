@@ -36,5 +36,5 @@ export function getBaseUrl(requestHost?: string | null, requestProto?: string | 
   }
 
   // 6. Default domain fallback
-  return 'https://toolnest.app';
+  return 'https://toolnest.jobsio.in';
 }

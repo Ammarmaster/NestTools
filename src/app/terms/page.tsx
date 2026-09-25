@@ -5,6 +5,9 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 export const metadata: Metadata = {
   title: 'Terms of Service | ToolNest',
   description: 'Terms of Service and conditions for using ToolNest free online tools platform.',
+  alternates: {
+    canonical: '/terms',
+  },
 };
 
 export default function TermsPage() {
