@@ -101,6 +101,10 @@ const DIMENSIONS: UnitDimension[] = [
       { name: 'Carats', slug: 'carats', toBase: 0.2 },
       { name: 'Short Tons', slug: 'short-tons', toBase: 907184.74 },
       { name: 'Grains', slug: 'grains', toBase: 0.0647989 },
+      { name: 'Tola', slug: 'tola', toBase: 11.6638 },
+      { name: 'Sovereign (Pavan)', slug: 'sovereign', toBase: 8.0 },
+      { name: 'Ratti', slug: 'ratti', toBase: 0.1215 },
+      { name: 'Quintal', slug: 'quintal', toBase: 100000 },
     ],
   },
   {
@@ -118,6 +122,15 @@ const DIMENSIONS: UnitDimension[] = [
       { name: 'Square Miles', slug: 'sq-mi', toBase: 2589988.11 },
       { name: 'Acres', slug: 'acres', toBase: 4046.85642 },
       { name: 'Hectares', slug: 'hectares', toBase: 10000 },
+      { name: 'Gaj', slug: 'gaj', toBase: 0.83612736 },
+      { name: 'Guntha', slug: 'guntha', toBase: 101.17141056 },
+      { name: 'Cent', slug: 'cent', toBase: 40.4685642 },
+      { name: 'Bigha', slug: 'bigha', toBase: 2529.285 },
+      { name: 'Marla', slug: 'marla', toBase: 25.29285 },
+      { name: 'Kanal', slug: 'kanal', toBase: 505.857 },
+      { name: 'Ground', slug: 'ground', toBase: 222.967296 },
+      { name: 'Biswa', slug: 'biswa', toBase: 126.464 },
+      { name: 'Katha', slug: 'katha', toBase: 126.464 },
     ],
   },
   {
@@ -265,6 +278,10 @@ function buildAllPairwiseConverters(): ToolDefinition[] {
           `free ${name.toLowerCase()}`,
         ];
 
+        const formattedRatio = ratio < 0.0001 ? ratio.toExponential(4) : ratio.toFixed(6).replace(/\.?0+$/, '');
+        const customTitle = `${from.name} to ${to.name} Converter (1 ${from.slug} = ${formattedRatio} ${to.slug}) | ToolNest`;
+        const customDescription = `Convert ${from.name} to ${to.name} instantly. 1 ${from.slug} = ${formattedRatio} ${to.slug}. Free online ${from.slug} to ${to.slug} conversion calculator with formula, steps, and chart.`;
+
         tools.push(
           createTool(
             id,
@@ -286,6 +303,8 @@ function buildAllPairwiseConverters(): ToolDefinition[] {
               toUnit: to.name,
               fromSymbol: from.slug,
               toSymbol: to.slug,
+              seoTitle: customTitle,
+              seoDescription: customDescription,
             }
           )
         );
@@ -725,6 +744,425 @@ function buildMortgageTools(): ToolDefinition[] {
   });
 }
 
+// -------------------------------------------------------------
+// 11. SIP INVESTMENT TOOLS
+// -------------------------------------------------------------
+function buildSipTools(): ToolDefinition[] {
+  const plans = [
+    { monthly: 500, label: '500' },
+    { monthly: 1000, label: '1000' },
+    { monthly: 2000, label: '2000' },
+    { monthly: 3000, label: '3000' },
+    { monthly: 5000, label: '5000' },
+    { monthly: 10000, label: '10000' },
+    { monthly: 15000, label: '15000' },
+    { monthly: 20000, label: '20000' },
+    { monthly: 25000, label: '25000' },
+    { monthly: 50000, label: '50000' },
+    { monthly: 100000, label: '1-lakh' },
+  ];
+  const durations = [5, 10, 15, 20, 25];
+  const tools: ToolDefinition[] = [];
+
+  plans.forEach((p) => {
+    durations.forEach((yr) => {
+      const slug = `${p.label}-per-month-sip-for-${yr}-years`;
+      const id = `sip-${slug}`;
+      const name = `₹${p.monthly.toLocaleString('en-IN')} Monthly SIP for ${yr} Years`;
+      const i = 0.12 / 12;
+      const n = yr * 12;
+      const maturity = Math.round(p.monthly * ((Math.pow(1 + i, n) - 1) / i) * (1 + i));
+      const invested = p.monthly * n;
+      const gain = maturity - invested;
+
+      const formula = `M = P × [((1 + i)^n - 1) / i] × (1 + i) where P = ₹${p.monthly}, i = 12%/12, n = ${n} months`;
+      const example = `Total Invested: ₹${invested.toLocaleString('en-IN')}\nEstimated Wealth Gain (at 12%): ₹${gain.toLocaleString('en-IN')}\nTotal Maturity Value: ₹${maturity.toLocaleString('en-IN')}`;
+      const whatIs = `The ${name} Calculator projects your mutual fund wealth accumulation when investing ₹${p.monthly.toLocaleString('en-IN')} every month for ${yr} years at an expected 12% annual compounding return.`;
+      const howToUse = [
+        `Review the pre-set ₹${p.monthly.toLocaleString('en-IN')}/month SIP over ${yr} years.`,
+        'Modify investment amount, expected return rate, or duration.',
+        'View the total wealth gain and maturity value immediately.',
+      ];
+      const faqs = [
+        {
+          question: `How much will a ₹${p.monthly.toLocaleString('en-IN')} monthly SIP give after ${yr} years?`,
+          answer: `At an average 12% annual return rate, investing ₹${p.monthly.toLocaleString('en-IN')} per month for ${yr} years yields approximately ₹${maturity.toLocaleString('en-IN')} (₹${invested.toLocaleString('en-IN')} invested + ₹${gain.toLocaleString('en-IN')} returns).`,
+        },
+      ];
+
+      tools.push(
+        createTool(
+          id,
+          name,
+          slug,
+          'finance',
+          `Calculate returns on ₹${p.monthly.toLocaleString('en-IN')} monthly SIP for ${yr} years at 12% return. Expected maturity is ₹${maturity.toLocaleString('en-IN')}.`,
+          'TrendingUp',
+          [`${p.monthly} sip for ${yr} years`, `${p.label} per month sip`, `sip return ${yr} years`],
+          formula,
+          example,
+          whatIs,
+          howToUse,
+          faqs,
+          'universal-sip',
+          {
+            sipMonthly: p.monthly,
+            sipYears: yr,
+            seoTitle: `₹${p.monthly.toLocaleString('en-IN')} SIP for ${yr} Years = ₹${maturity.toLocaleString('en-IN')} | SIP Calculator`,
+            seoDescription: `Investing ₹${p.monthly.toLocaleString('en-IN')}/mo for ${yr} years yields ₹${maturity.toLocaleString('en-IN')} at 12% return. Total invested: ₹${invested.toLocaleString('en-IN')}. Free calculator.`,
+          }
+        )
+      );
+    });
+  });
+
+  return tools;
+}
+
+// -------------------------------------------------------------
+// 12. EMI LOAN TOOLS (HOME, PERSONAL, CAR)
+// -------------------------------------------------------------
+function buildEmiTools(): ToolDefinition[] {
+  const loans = [
+    { amount: 500000, label: '5-lakh', display: '₹5 Lakh' },
+    { amount: 1000000, label: '10-lakh', display: '₹10 Lakh' },
+    { amount: 1500000, label: '15-lakh', display: '₹15 Lakh' },
+    { amount: 2000000, label: '20-lakh', display: '₹20 Lakh' },
+    { amount: 2500000, label: '25-lakh', display: '₹25 Lakh' },
+    { amount: 3000000, label: '30-lakh', display: '₹30 Lakh' },
+    { amount: 4000000, label: '40-lakh', display: '₹40 Lakh' },
+    { amount: 5000000, label: '50-lakh', display: '₹50 Lakh' },
+    { amount: 7500000, label: '75-lakh', display: '₹75 Lakh' },
+    { amount: 10000000, label: '1-crore', display: '₹1 Crore' },
+  ];
+  const types = [
+    { type: 'home-loan', name: 'Home Loan', rate: 8.5, tenure: 20 },
+    { type: 'personal-loan', name: 'Personal Loan', rate: 12.0, tenure: 5 },
+    { type: 'car-loan', name: 'Car Loan', rate: 9.0, tenure: 7 },
+  ];
+  const tools: ToolDefinition[] = [];
+
+  loans.forEach((l) => {
+    types.forEach((t) => {
+      const slug = `${l.label}-${t.type}-emi-calculator`;
+      const id = `emi-${slug}`;
+      const name = `${l.display} ${t.name} EMI Calculator`;
+
+      const r = t.rate / 12 / 100;
+      const n = t.tenure * 12;
+      const emi = Math.round((l.amount * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1));
+      const totalPay = emi * n;
+      const interest = totalPay - l.amount;
+
+      const formula = `EMI = [P × r × (1+r)^n] / [(1+r)^n - 1] at ${t.rate}% for ${t.tenure} years`;
+      const example = `Monthly EMI: ₹${emi.toLocaleString('en-IN')}\nTotal Interest: ₹${interest.toLocaleString('en-IN')}\nTotal Payable: ₹${totalPay.toLocaleString('en-IN')}`;
+      const whatIs = `The ${name} calculates your monthly EMI, total interest, and complete repayment for a ${l.display} ${t.name.toLowerCase()} at an interest rate of ${t.rate}% over a ${t.tenure}-year tenure.`;
+      const howToUse = [
+        `Review the pre-filled ${l.display} principal at ${t.rate}% for ${t.tenure} years.`,
+        'Adjust the interest rate or loan tenure as per your bank quote.',
+        'View your exact monthly EMI and total interest burden.',
+      ];
+      const faqs = [
+        {
+          question: `What is the monthly EMI for a ${l.display} ${t.name.toLowerCase()}?`,
+          answer: `At ${t.rate}% interest over ${t.tenure} years, the monthly EMI on a ${l.display} loan is ₹${emi.toLocaleString('en-IN')}. Total interest payable is ₹${interest.toLocaleString('en-IN')}.`,
+        },
+      ];
+
+      tools.push(
+        createTool(
+          id,
+          name,
+          slug,
+          'finance',
+          `Calculate monthly EMI on a ${l.display} ${t.name.toLowerCase()} at ${t.rate}% for ${t.tenure} years. Monthly payment is ₹${emi.toLocaleString('en-IN')}.`,
+          'Landmark',
+          [`${l.label} ${t.name.toLowerCase()} emi`, `${l.display.toLowerCase()} emi calculator`, `monthly emi on ${l.display}`],
+          formula,
+          example,
+          whatIs,
+          howToUse,
+          faqs,
+          'universal-emi',
+          {
+            emiLoanAmount: l.amount,
+            emiTenureYears: t.tenure,
+            emiRate: t.rate,
+            seoTitle: `${l.display} ${t.name} EMI = ₹${emi.toLocaleString('en-IN')}/mo | Calculator`,
+            seoDescription: `Monthly EMI for a ${l.display} ${t.name.toLowerCase()} at ${t.rate}% over ${t.tenure} years is ₹${emi.toLocaleString('en-IN')}. Total interest: ₹${interest.toLocaleString('en-IN')}. Free calculator.`,
+          }
+        )
+      );
+    });
+  });
+
+  return tools;
+}
+
+// -------------------------------------------------------------
+// 13. GST TOOLS
+// -------------------------------------------------------------
+function buildGstTools(): ToolDefinition[] {
+  const slabs = [3, 5, 12, 18, 28];
+  const amounts = [
+    { amt: 1000, label: '1000-rupees' },
+    { amt: 5000, label: '5000-rupees' },
+    { amt: 10000, label: '10000-rupees' },
+    { amt: 50000, label: '50000-rupees' },
+    { amt: 100000, label: '1-lakh-rupees' },
+  ];
+  const tools: ToolDefinition[] = [];
+
+  // Slab tools
+  slabs.forEach((slab) => {
+    const slug = `${slab}-percent-gst-calculator`;
+    const id = `gst-${slug}`;
+    const name = `${slab}% GST Calculator`;
+    tools.push(
+      createTool(
+        id,
+        name,
+        slug,
+        'finance',
+        `Calculate ${slab}% GST amount, CGST (${(slab/2).toFixed(1)}%), SGST (${(slab/2).toFixed(1)}%), and gross total online.`,
+        'Receipt',
+        [`${slab} percent gst`, `${slab} gst calculator`, `how to calculate ${slab} gst`],
+        `GST = (Amount × ${slab}) ÷ 100; CGST = ${slab/2}%; SGST = ${slab/2}%`,
+        `On ₹1,000 base price: GST = ₹${1000 * slab / 100}; Total = ₹${1000 * (1 + slab / 100)}`,
+        `The ${name} calculates the exact Goods and Services Tax (GST) at ${slab}% on any bill amount, displaying CGST, SGST, and both inclusive and exclusive figures.`,
+        ['Enter the bill or item amount.', 'Select GST Exclusive (Add GST) or GST Inclusive (Extract GST).', 'Copy your calculation with one click.'],
+        [{ question: `How much is ${slab}% GST on ₹1,000?`, answer: `The ${slab}% GST on ₹1,000 is ₹${1000 * slab / 100}. The total price is ₹${1000 * (1 + slab / 100)}.` }],
+        'universal-gst',
+        {
+          gstRate: slab,
+          gstAmount: 10000,
+          seoTitle: `${slab}% GST Calculator – Online CGST, SGST & Total Price | ToolNest`,
+          seoDescription: `Calculate ${slab}% GST on any amount. Includes CGST (${(slab/2).toFixed(1)}%), SGST (${(slab/2).toFixed(1)}%), GST inclusive and exclusive modes. Free online calculator.`,
+        }
+      )
+    );
+  });
+
+  // Amount tools
+  amounts.forEach((a) => {
+    const slug = `gst-on-${a.label}`;
+    const id = `gst-${slug}`;
+    const name = `GST on ₹${a.amt.toLocaleString('en-IN')} Calculator`;
+    tools.push(
+      createTool(
+        id,
+        name,
+        slug,
+        'finance',
+        `Calculate GST at 3%, 5%, 12%, 18%, and 28% on ₹${a.amt.toLocaleString('en-IN')}.`,
+        'Receipt',
+        [`gst on ${a.amt}`, `gst on ${a.label.replace(/-/g, ' ')}`, `18 gst on ${a.amt}`],
+        `GST = (₹${a.amt} × Rate) ÷ 100`,
+        `At 18% GST: Tax = ₹${a.amt * 0.18}; Total = ₹${a.amt * 1.18}`,
+        `The ${name} breaks down the exact Goods and Services Tax amounts for ₹${a.amt.toLocaleString('en-IN')} across standard tax slabs.`,
+        ['Review the ₹' + a.amt.toLocaleString('en-IN') + ' pre-set amount.', 'Click on any GST slab (3%, 5%, 12%, 18%, 28%).', 'View CGST, SGST, and gross invoice total.'],
+        [{ question: `How much is 18% GST on ₹${a.amt.toLocaleString('en-IN')}?`, answer: `18% GST on ₹${a.amt.toLocaleString('en-IN')} is ₹${(a.amt * 0.18).toLocaleString('en-IN')}. Total payable is ₹${(a.amt * 1.18).toLocaleString('en-IN')}.` }],
+        'universal-gst',
+        {
+          gstRate: 18,
+          gstAmount: a.amt,
+          seoTitle: `GST on ₹${a.amt.toLocaleString('en-IN')} Calculator (18% = ₹${(a.amt * 0.18).toLocaleString('en-IN')}) | ToolNest`,
+          seoDescription: `Calculate GST on ₹${a.amt.toLocaleString('en-IN')}. 18% GST is ₹${(a.amt * 0.18).toLocaleString('en-IN')} (Total: ₹${(a.amt * 1.18).toLocaleString('en-IN')}). Compare 3%, 5%, 12%, 18%, 28% slabs.`,
+        }
+      )
+    );
+  });
+
+  return tools;
+}
+
+// -------------------------------------------------------------
+// 14. LPA IN-HAND SALARY TOOLS
+// -------------------------------------------------------------
+function buildLpaSalaryTools(): ToolDefinition[] {
+  const lpas = [3, 3.5, 4, 4.5, 5, 6, 7, 8, 9, 10, 12, 14, 15, 18, 20, 25, 30, 40, 50];
+  const tools: ToolDefinition[] = [];
+
+  lpas.forEach((lpa) => {
+    const slug = `${lpa.toString().replace('.', '-')}-lpa-in-hand-salary`;
+    const id = `salary-${slug}`;
+    const name = `${lpa} LPA In Hand Salary Calculator`;
+    const annualCtc = lpa * 100000;
+    const monthlyCtc = annualCtc / 12;
+    const basicMonthly = Math.round(monthlyCtc * 0.5);
+    const employeePfMonthly = Math.min(1800, Math.round(basicMonthly * 0.12));
+    const professionalTax = 200;
+    const taxableIncome = Math.max(0, annualCtc - 75000);
+    let annualTax = 0;
+    if (taxableIncome > 700000) {
+      if (taxableIncome <= 1000000) annualTax = (taxableIncome - 700000) * 0.10 + 20000;
+      else if (taxableIncome <= 1200000) annualTax = (taxableIncome - 1000000) * 0.15 + 50000;
+      else if (taxableIncome <= 1500000) annualTax = (taxableIncome - 1200000) * 0.20 + 80000;
+      else annualTax = (taxableIncome - 1500000) * 0.30 + 140000;
+      annualTax = Math.round(annualTax * 1.04);
+    }
+    const monthlyTax = Math.round(annualTax / 12);
+    const inHand = Math.max(0, monthlyCtc - employeePfMonthly - professionalTax - monthlyTax);
+
+    const formula = `Monthly In-Hand = Monthly CTC - PF (₹${employeePfMonthly}) - PT (₹200) - TDS (₹${monthlyTax})`;
+    const example = `Annual CTC: ₹${annualCtc.toLocaleString('en-IN')}\nMonthly In-Hand Take Home: ₹${Math.round(inHand).toLocaleString('en-IN')}\nAnnual In-Hand: ₹${Math.round(inHand * 12).toLocaleString('en-IN')}`;
+    const whatIs = `The ${name} computes your estimated monthly take-home salary for a ${lpa} Lakh per Annum CTC package in India under the New Tax Regime, factoring in Employee Provident Fund (PF), Professional Tax, and Income Tax TDS deductions.`;
+    const howToUse = [
+      `Review your ${lpa} LPA salary structure.`,
+      'Examine the monthly take-home after PF and tax deductions.',
+      'Check annual earnings and compare with other CTC packages.',
+    ];
+    const faqs = [
+      {
+        question: `How much is ${lpa} LPA in monthly in-hand salary?`,
+        answer: `For a CTC of ${lpa} LPA, your monthly in-hand salary is approximately ₹${Math.round(inHand).toLocaleString('en-IN')}, depending on your organization's exact allowances, gratuity, and variable pay component.`,
+      },
+    ];
+
+    tools.push(
+      createTool(
+        id,
+        name,
+        slug,
+        'career',
+        `Calculate monthly in-hand take home salary for ${lpa} LPA CTC in India. Estimated in-hand is ₹${Math.round(inHand).toLocaleString('en-IN')}/month.`,
+        'DollarSign',
+        [`${lpa} lpa in hand salary`, `${lpa} lakh ctc monthly in hand`, `${lpa} lpa in hand`],
+        formula,
+        example,
+        whatIs,
+        howToUse,
+        faqs,
+        'universal-lpa-salary',
+        {
+          lpaAmount: lpa,
+          seoTitle: `${lpa} LPA In Hand Salary: ₹${Math.round(inHand).toLocaleString('en-IN')}/Month Take Home | ToolNest`,
+          seoDescription: `${lpa} LPA CTC gives approximately ₹${Math.round(inHand).toLocaleString('en-IN')} per month in-hand salary in India. Detailed deductions for PF, PT, and Income Tax (New Regime). Free calculator.`,
+        }
+      )
+    );
+  });
+
+  return tools;
+}
+
+// -------------------------------------------------------------
+// 15. UNIVERSITY CGPA TO PERCENTAGE TOOLS
+// -------------------------------------------------------------
+function buildUniversityCgpaTools(): ToolDefinition[] {
+  const univs = [
+    { key: 'vtu', name: 'VTU CGPA to Percentage Calculator', slug: 'vtu-cgpa-to-percentage', formulaName: '(CGPA - 0.75) × 10', state: 'Karnataka (VTU Belagavi)' },
+    { key: 'anna', name: 'Anna University CGPA to Percentage Calculator', slug: 'anna-university-cgpa-to-percentage', formulaName: 'CGPA × 10', state: 'Tamil Nadu (Anna University Chennai)' },
+    { key: 'mumbai', name: 'Mumbai University CGPA to Percentage Calculator', slug: 'mumbai-university-cgpa-to-percentage', formulaName: '7.1 × CGPA + 11', state: 'Maharashtra (MU Mumbai)' },
+    { key: 'aktu', name: 'AKTU CGPA to Percentage Calculator', slug: 'aktu-cgpa-to-percentage', formulaName: '(CGPA - 0.75) × 10', state: 'Uttar Pradesh (AKTU Lucknow)' },
+    { key: 'sppu', name: 'SPPU Pune CGPA to Percentage Calculator', slug: 'sppu-cgpa-to-percentage', formulaName: '(CGPA - 0.75) × 10', state: 'Maharashtra (Pune University)' },
+    { key: 'rgpv', name: 'RGPV CGPA to Percentage Calculator', slug: 'rgpv-cgpa-to-percentage', formulaName: 'CGPA × 10', state: 'Madhya Pradesh (RGPV Bhopal)' },
+    { key: 'jntu', name: 'JNTU CGPA to Percentage Calculator', slug: 'jntu-cgpa-to-percentage', formulaName: '(CGPA - 0.75) × 10', state: 'Andhra Pradesh & Telangana' },
+    { key: 'cbse', name: 'CBSE CGPA to Percentage Calculator', slug: 'cbse-cgpa-to-percentage', formulaName: 'CGPA × 9.5', state: 'CBSE Class 10 & 12 Board' },
+    { key: 'standard', name: '10 Point CGPA to Percentage Calculator', slug: '10-point-cgpa-to-percentage', formulaName: 'CGPA × 10 or (CGPA - 0.75) × 10', state: 'Universal 10-Point Scale' },
+  ];
+  const tools: ToolDefinition[] = [];
+
+  univs.forEach((u) => {
+    const id = `univ-${u.slug}`;
+    const formula = `Percentage = ${u.formulaName}`;
+    const example = `CGPA 8.0 = ${(8.0 * (u.key === 'cbse' ? 9.5 : (u.key === 'vtu' || u.key === 'aktu' || u.key === 'sppu' ? 7.25 : 10))).toFixed(2)}%`;
+    const whatIs = `The ${u.name} applies the official university conversion formula for ${u.state} to accurately convert grade point averages into equivalent percentage marks.`;
+    const howToUse = [
+      'Enter your cumulative grade point average (CGPA) on a 10-point scale.',
+      'The exact equivalent percentage and official academic division display instantly.',
+      'Copy your percentage score for job applications, resumes, and higher studies.',
+    ];
+    const faqs = [
+      {
+        question: `What is the official conversion formula for ${u.name}?`,
+        answer: `The official conversion formula for ${u.state} is ${u.formulaName}. For example, an 8.0 CGPA converts directly according to this university regulation.`,
+      },
+    ];
+
+    tools.push(
+      createTool(
+        id,
+        u.name,
+        u.slug,
+        'student',
+        `Convert CGPA to percentage using the official ${u.state} formula: ${u.formulaName}.`,
+        'GraduationCap',
+        [`${u.key} cgpa to percentage`, `${u.slug.replace(/-/g, ' ')}`, `convert ${u.key} cgpa to marks`],
+        formula,
+        example,
+        whatIs,
+        howToUse,
+        faqs,
+        'universal-university-cgpa',
+        {
+          universityKey: u.key,
+          seoTitle: `${u.name} (Formula: ${u.formulaName}) | ToolNest`,
+          seoDescription: `Convert CGPA to percentage using the official ${u.state} formula (${u.formulaName}). Instant conversion with academic division for placements and masters applications.`,
+        }
+      )
+    );
+  });
+
+  return tools;
+}
+
+// -------------------------------------------------------------
+// 16. PERCENTAGE MATH TOOLS
+// -------------------------------------------------------------
+function buildPercentageTools(): ToolDefinition[] {
+  const pcts = [5, 10, 15, 18, 20, 25, 30, 35, 40, 50, 60, 75];
+  const tools: ToolDefinition[] = [];
+
+  pcts.forEach((pct) => {
+    const slug = `what-is-${pct}-percent-of`;
+    const id = `pct-${slug}`;
+    const name = `What is ${pct}% of a Number Calculator`;
+    const sample = 500;
+    const ans = (pct * sample) / 100;
+
+    const formula = `Result = (${pct} × Number) ÷ 100`;
+    const example = `${pct}% of ${sample} = (${pct} × ${sample}) ÷ 100 = ${ans}`;
+    const whatIs = `The ${name} is an instant math tool that calculates ${pct} percent of any given amount, price, or score with step-by-step breakdown.`;
+    const howToUse = [
+      `Enter any number in the input box.`,
+      `The ${pct}% answer calculates instantaneously in real-time.`,
+      'Copy the calculated answer with one click.',
+    ];
+    const faqs = [
+      {
+        question: `How do you calculate ${pct}% of a number?`,
+        answer: `To find ${pct}% of any number, multiply the number by ${pct} and then divide by 100 (or multiply by ${(pct / 100).toFixed(2)}). For example, ${pct}% of 500 = ${ans}.`,
+      },
+    ];
+
+    tools.push(
+      createTool(
+        id,
+        name,
+        slug,
+        'math',
+        `Calculate ${pct}% of any number instantly with step-by-step math formula.`,
+        'Percent',
+        [`what is ${pct} percent of`, `${pct} percent of a number`, `how to calculate ${pct} percent`],
+        formula,
+        example,
+        whatIs,
+        howToUse,
+        faqs,
+        'universal-percentage',
+        {
+          percentageVal: pct,
+          seoTitle: `What is ${pct}% of a Number? Instant Percentage Calculator | ToolNest`,
+          seoDescription: `Calculate ${pct}% of any number instantly. Easy formula, step-by-step worked examples, and online percentage calculator. Free tool by ToolNest.`,
+        }
+      )
+    );
+  });
+
+  return tools;
+}
+
 // Master Function returning all generated tools
 export function getGeneratedTools(): ToolDefinition[] {
   const pairwise = buildAllPairwiseConverters();
@@ -737,6 +1175,12 @@ export function getGeneratedTools(): ToolDefinition[] {
   const academic = buildAcademicTools();
   const salesTax = buildSalesTaxTools();
   const mortgages = buildMortgageTools();
+  const sips = buildSipTools();
+  const emis = buildEmiTools();
+  const gsts = buildGstTools();
+  const lpas = buildLpaSalaryTools();
+  const univCgpa = buildUniversityCgpaTools();
+  const pcts = buildPercentageTools();
 
   return [
     ...pairwise,
@@ -749,5 +1193,11 @@ export function getGeneratedTools(): ToolDefinition[] {
     ...academic,
     ...salesTax,
     ...mortgages,
+    ...sips,
+    ...emis,
+    ...gsts,
+    ...lpas,
+    ...univCgpa,
+    ...pcts,
   ];
 }

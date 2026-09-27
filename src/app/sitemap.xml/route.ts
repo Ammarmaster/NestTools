@@ -12,18 +12,25 @@ export async function GET(request: NextRequest) {
 
   const currentDate = new Date().toISOString();
 
-  // Static routes
+  // Core & High-Intent SEO Searchable Pages
   const staticPages = [
-    { path: '', priority: '1.0', changefreq: 'daily' },
-    { path: '/popular-tools', priority: '0.95', changefreq: 'daily' },
-    { path: '/tools', priority: '0.9', changefreq: 'daily' },
-    { path: '/founder', priority: '0.85', changefreq: 'weekly' },
-    { path: '/ammar-master', priority: '0.85', changefreq: 'weekly' },
-    { path: '/about', priority: '0.7', changefreq: 'monthly' },
-    { path: '/contact', priority: '0.7', changefreq: 'monthly' },
-    { path: '/privacy', priority: '0.6', changefreq: 'monthly' },
-    { path: '/terms', priority: '0.6', changefreq: 'monthly' },
-    { path: '/disclaimer', priority: '0.6', changefreq: 'monthly' },
+    { path: '', priority: '1.0', changefreq: 'daily', title: 'ToolNest – 1,000+ Free Online Tools' },
+    { path: '/search', priority: '0.95', changefreq: 'daily', title: 'Search 1,000+ Free Online Tools & Instant Directory' },
+    { path: '/popular-tools', priority: '0.95', changefreq: 'daily', title: 'Top 50 Most Popular Free Online Tools' },
+    { path: '/free-pdf-tools', priority: '0.95', changefreq: 'daily', title: 'Free PDF Tools & Converters Suite (100% Client-Side)' },
+    { path: '/student-calculators', priority: '0.95', changefreq: 'daily', title: 'Free Student Calculators, CGPA, SGPA & Attendance' },
+    { path: '/developer-utilities', priority: '0.95', changefreq: 'daily', title: 'Online Developer Utilities, Formatters & Encoders' },
+    { path: '/finance-calculators', priority: '0.95', changefreq: 'daily', title: 'Free Salary, Loan EMI & Tax Calculators' },
+    { path: '/unit-converters', priority: '0.95', changefreq: 'daily', title: 'Universal Unit Converters - Metric & Imperial' },
+    { path: '/tools', priority: '0.90', changefreq: 'daily', title: 'Tools Directory & Complete Catalog' },
+    { path: '/monetize', priority: '0.85', changefreq: 'weekly', title: 'How to Earn from Ads & Monetize Online Tools' },
+    { path: '/founder', priority: '0.85', changefreq: 'weekly', title: 'Md Jalaluddin Master (Ammar Master) – Founder' },
+    { path: '/ammar-master', priority: '0.85', changefreq: 'weekly', title: 'Ammar Master Profile & Engineering Philosophy' },
+    { path: '/about', priority: '0.70', changefreq: 'monthly', title: 'About ToolNest by ProDevOpz' },
+    { path: '/contact', priority: '0.70', changefreq: 'monthly', title: 'Contact & Feedback – ToolNest' },
+    { path: '/privacy', priority: '0.60', changefreq: 'monthly', title: 'Privacy Policy & Zero Server Data Guarantee' },
+    { path: '/terms', priority: '0.60', changefreq: 'monthly', title: 'Terms of Service – ToolNest' },
+    { path: '/disclaimer', priority: '0.60', changefreq: 'monthly', title: 'Calculator & Disclaimer Policy' },
   ];
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -40,7 +47,7 @@ export async function GET(request: NextRequest) {
     <priority>${page.priority}</priority>
     <image:image>
       <image:loc>${baseUrl}/logo.png</image:loc>
-      <image:title>ToolNest - 1,000+ Free Online Tools</image:title>
+      <image:title>${page.title}</image:title>
     </image:image>
   </url>
 `;

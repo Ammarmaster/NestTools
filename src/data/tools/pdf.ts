@@ -537,5 +537,528 @@ export const pdfTools: ToolDefinition[] = [
       ]
     },
     relatedToolIds: ['random-string-generator', 'hash-generator', 'jwt-decoder']
+  },
+  {
+    id: 'pdf-compress-pdf',
+    name: 'Compress PDF Online (Reduce PDF Size)',
+    slug: 'compress-pdf',
+    category: 'pdf',
+    description: 'Compress and reduce PDF file size online by up to 80% with zero quality loss. 100% private in-browser compression without uploading documents to remote servers.',
+    icon: 'Minimize2',
+    keywords: [
+      'compress pdf',
+      'reduce pdf size',
+      'shrink pdf online',
+      'compress pdf to 200kb',
+      'compress pdf to 100kb',
+      'compress pdf free',
+      'ilovepdf compress',
+      'pdf size reducer'
+    ],
+    seoTitle: 'Compress PDF Online Free – Reduce PDF File Size (No Uploads) | ToolNest',
+    seoDescription: 'Compress PDF files online by up to 80% without quality loss. 100% private client-side processing, zero server uploads, no limits, and instant free download.',
+    componentKey: 'compress-pdf',
+    popular: true,
+    featured: true,
+    content: {
+      whatIs: 'The Compress PDF tool decreases the byte size of heavy PDF documents directly on your device. Powered by WebAssembly and local JavaScript binary stream parsing, it strips unreferenced metadata, compresses font streams, and optimizes vector tables in local RAM, ensuring sensitive financial, medical, and legal records are never exposed to remote third-party servers.',
+      howToUse: [
+        'Select or drag and drop your PDF file into the upload zone.',
+        'Choose your compression level (Recommended, Basic, or Extreme Compression).',
+        'Click the "Compress PDF" button.',
+        'View the original vs. compressed size and percentage reduction, then download your optimized file.'
+      ],
+      formula: 'Size Reduction % = ((Original_Size - Compressed_Size) / Original_Size) × 100',
+      example: 'Compressing a 5.4 MB scan of an income tax return down to 820 KB for portal submission.',
+      benefits: [
+        '100% Privacy Guaranteed: Files never leave your browser.',
+        'No file size restrictions or hidden subscription tiers.',
+        'Instant processing with zero server queuing latency.',
+        'Leaves all text, vector graphs, and diagrams crisp.'
+      ],
+      tips: [
+        'Use "Recommended" compression for general business and academic submissions.',
+        'Use "Extreme" compression when submitting to government or university portals with strict 200 KB or 500 KB limits.'
+      ],
+      faqs: [
+        {
+          question: 'Is it safe to compress confidential legal or medical PDFs here?',
+          answer: 'Yes, 100% safe. ToolNest processes everything in your browser memory via client-side JavaScript. Your file is never uploaded to any cloud server or database.'
+        },
+        {
+          question: 'How much can I reduce my PDF file size?',
+          answer: 'Depending on the structure and embedded images, file sizes are typically reduced by 40% to 80% without noticeable degradation.'
+        },
+        {
+          question: 'Can I compress a PDF to 200 KB or 100 KB?',
+          answer: 'Yes! Select the "Extreme" compression option to heavily compress streams and achieve the lowest possible byte footprint for web portal uploads.'
+        }
+      ]
+    },
+    relatedToolIds: ['pdf-merger', 'pdf-page-splitter', 'image-to-pdf']
+  },
+  {
+    id: 'pdf-merge-pdf',
+    name: 'Merge PDF (Combine Multiple PDF Files)',
+    slug: 'merge-pdf',
+    category: 'pdf',
+    description: 'Combine multiple PDF documents into a single organized PDF file with custom page ordering. Free, fast, and 100% private in-browser.',
+    icon: 'Layers',
+    keywords: [
+      'merge pdf',
+      'combine pdf',
+      'join pdf files',
+      'merge pdf online free',
+      'ilovepdf merge',
+      'combine pdfs into one'
+    ],
+    seoTitle: 'Merge PDF Online Free – Combine Multiple PDF Files Privately | ToolNest',
+    seoDescription: 'Merge and combine multiple PDF files into one document in seconds. Reorder pages, zero server uploads, 100% private, no file size limits, and free download.',
+    componentKey: 'pdf-merger',
+    popular: true,
+    featured: true,
+    content: {
+      whatIs: 'The Merge PDF tool merges separate PDF documents into one unified, sequential document in your browser. Rearrange files, organize chapters, and produce consolidated reports without uploading sensitive papers to cloud servers.',
+      howToUse: [
+        'Select multiple PDF files from your device.',
+        'Reorder the files using the drag or move controls.',
+        'Click "Merge PDF Files".',
+        'Download your combined PDF document instantly.'
+      ],
+      formula: 'Total_Document = [Pages from Document 1] + [Pages from Document 2] + ...',
+      example: 'Merging a Cover Letter, Resume, and Portfolio into a single JobApplication.pdf.',
+      benefits: [
+        'Absolute privacy: Zero server uploads.',
+        'Lossless concatenation: Vector diagrams and fonts are preserved.',
+        'Unlimited merges without paywalls.'
+      ],
+      faqs: [
+        {
+          question: 'How many PDF documents can I combine at once?',
+          answer: 'You can merge dozens of PDF files simultaneously, limited only by your computer’s local memory.'
+        }
+      ]
+    },
+    relatedToolIds: ['compress-pdf', 'split-pdf', 'rotate-pdf']
+  },
+  {
+    id: 'pdf-split-pdf',
+    name: 'Split PDF (Extract Pages from PDF)',
+    slug: 'split-pdf',
+    category: 'pdf',
+    description: 'Separate, cut, and extract specific pages or custom ranges from any PDF document into a new standalone PDF file.',
+    icon: 'Scissors',
+    keywords: [
+      'split pdf',
+      'extract pages from pdf',
+      'separate pdf online',
+      'cut pdf pages',
+      'ilovepdf split'
+    ],
+    seoTitle: 'Split PDF Online Free – Extract Pages from PDF Privately | ToolNest',
+    seoDescription: 'Split large PDF documents or extract specific page ranges in seconds. 100% private, client-side processing, no watermarks, and free download.',
+    componentKey: 'pdf-page-splitter',
+    popular: true,
+    featured: true,
+    content: {
+      whatIs: 'The Split PDF tool allows you to isolate and extract desired pages (e.g. pages 2-5 or page 12) from a multi-page document into a compact, targeted PDF file.',
+      howToUse: [
+        'Upload your PDF document.',
+        'Specify page numbers or page ranges to extract (e.g. "1, 3-5, 8").',
+        'Click "Extract Pages & Download".',
+        'Download your customized PDF containing only the selected pages.'
+      ],
+      formula: 'Target_PDF = [Page_i for i in Range]',
+      example: 'Extracting only the signed agreement page (Page 8) from a 40-page contract.',
+      benefits: ['Fast extraction', '100% private', 'Reduces email attachment sizes'],
+      faqs: [
+        {
+          question: 'Can I extract non-consecutive pages?',
+          answer: 'Yes! Separate individual page numbers with commas (e.g. 1, 4, 7).'
+        }
+      ]
+    },
+    relatedToolIds: ['merge-pdf', 'compress-pdf', 'rotate-pdf']
+  },
+  {
+    id: 'pdf-rotate-pdf',
+    name: 'Rotate PDF (Fix Sideways & Upside-Down Pages)',
+    slug: 'rotate-pdf',
+    category: 'pdf',
+    description: 'Permanently rotate upside-down or sideways PDF pages by 90°, 180°, or 270° degrees without losing visual quality.',
+    icon: 'RotateCw',
+    keywords: [
+      'rotate pdf',
+      'turn pdf pages',
+      'fix upside down pdf',
+      'rotate pdf 90 degrees',
+      'ilovepdf rotate'
+    ],
+    seoTitle: 'Rotate PDF Online Free – Turn & Fix PDF Pages 90° 180° | ToolNest',
+    seoDescription: 'Rotate sideways or upside-down PDF pages permanently. Rotate by 90, 180, or 270 degrees. 100% private in-browser tool with zero server uploads.',
+    componentKey: 'pdf-page-rotator',
+    popular: true,
+    featured: false,
+    content: {
+      whatIs: 'The Rotate PDF tool fixes misaligned, inverted, or sideways scanned documents permanently by updating page transformation matrices.',
+      howToUse: [
+        'Upload your PDF document.',
+        'Choose rotation angle (90° Clockwise, 180°, or 270°).',
+        'Click "Apply Rotation & Download".',
+        'Download your corrected, properly oriented PDF.'
+      ],
+      benefits: ['Permanent fix', 'Lossless quality', 'Zero server uploads'],
+      faqs: [
+        {
+          question: 'Does rotating a PDF reduce its sharpness?',
+          answer: 'No. The rotation is lossless and modifies only the orientation matrix flag in the PDF dictionary.'
+        }
+      ]
+    },
+    relatedToolIds: ['merge-pdf', 'compress-pdf', 'split-pdf']
+  },
+  {
+    id: 'pdf-protect-pdf',
+    name: 'Protect PDF (Add Password to PDF)',
+    slug: 'protect-pdf',
+    category: 'pdf',
+    description: 'Encrypt your PDF documents with a strong password to prevent unauthorized viewing, printing, and copying.',
+    icon: 'Lock',
+    keywords: [
+      'protect pdf',
+      'password protect pdf',
+      'encrypt pdf',
+      'lock pdf with password',
+      'ilovepdf protect',
+      'add password to pdf free'
+    ],
+    seoTitle: 'Password Protect PDF Online Free – Encrypt PDF Files | ToolNest',
+    seoDescription: 'Add a secure password to your PDF files online. Encrypt documents client-side with strong algorithms. 100% private, zero server uploads, and free download.',
+    componentKey: 'protect-pdf',
+    popular: true,
+    featured: true,
+    content: {
+      whatIs: 'The Protect PDF tool secures sensitive documents with standard encryption. Without the designated password, unauthorized individuals cannot open, read, or print the document.',
+      howToUse: [
+        'Upload the PDF you wish to encrypt.',
+        'Enter and confirm your chosen password.',
+        'Click "Encrypt & Lock PDF".',
+        'Download your password-protected PDF.'
+      ],
+      benefits: [
+        'Military-grade security: Password is required to open the document.',
+        '100% Client-side: Your password and document are never sent across the internet.',
+        'Universal compatibility across all PDF readers (Adobe Acrobat, Chrome, Preview).'
+      ],
+      faqs: [
+        {
+          question: 'Can someone open the PDF without the password?',
+          answer: 'No. The PDF document is encrypted and standard viewers require the password to decrypt and display pages.'
+        }
+      ]
+    },
+    relatedToolIds: ['compress-pdf', 'watermark-pdf', 'sign-pdf']
+  },
+  {
+    id: 'pdf-watermark-pdf',
+    name: 'Watermark PDF (Add Text Stamp to PDF)',
+    slug: 'watermark-pdf',
+    category: 'pdf',
+    description: 'Add custom text watermarks ("CONFIDENTIAL", "DRAFT", your company name) across all pages of a PDF document with custom opacity and angle.',
+    icon: 'Stamp',
+    keywords: [
+      'watermark pdf',
+      'add watermark to pdf',
+      'stamp pdf',
+      'confidential watermark pdf',
+      'ilovepdf watermark',
+      'watermark pdf online free'
+    ],
+    seoTitle: 'Watermark PDF Online Free – Add Text Stamp to All Pages | ToolNest',
+    seoDescription: 'Add custom text watermarks to your PDF documents. Customize opacity, angle, font size, and text (CONFIDENTIAL, DRAFT). 100% private with instant download.',
+    componentKey: 'watermark-pdf',
+    popular: true,
+    featured: true,
+    content: {
+      whatIs: 'The Watermark PDF tool stamps customized text across every page of your document to prevent unauthorized redistribution and signal document confidentiality status.',
+      howToUse: [
+        'Upload your PDF document.',
+        'Type your watermark text (e.g. "CONFIDENTIAL", "DRAFT", "SAMPLE").',
+        'Adjust opacity, font size, and diagonal rotation angle.',
+        'Click "Apply Watermark to All Pages" and download.'
+      ],
+      benefits: [
+        'Protects intellectual property and proprietary documents.',
+        'Diagonal rotation and transparency controls.',
+        'Instant client-side stamping with no data uploads.'
+      ],
+      faqs: [
+        {
+          question: 'Will the watermark appear on every page?',
+          answer: 'Yes, the watermark is cleanly stamped on all pages of the document.'
+        }
+      ]
+    },
+    relatedToolIds: ['protect-pdf', 'page-numbers-pdf', 'sign-pdf']
+  },
+  {
+    id: 'pdf-page-numbers-pdf',
+    name: 'Add Page Numbers to PDF',
+    slug: 'page-numbers-pdf',
+    category: 'pdf',
+    description: 'Insert clean, professional page numbers ("Page 1 of N" or "1, 2, 3") into the headers or footers of your PDF document.',
+    icon: 'Hash',
+    keywords: [
+      'add page numbers to pdf',
+      'number pdf pages',
+      'page numbers in pdf',
+      'ilovepdf page numbers',
+      'insert page numbers pdf online'
+    ],
+    seoTitle: 'Add Page Numbers to PDF Online Free – Number PDF Pages | ToolNest',
+    seoDescription: 'Insert page numbers into PDF headers or footers. Choose position (bottom center, bottom right) and format (Page 1 of N). 100% private, free download.',
+    componentKey: 'page-numbers-pdf',
+    popular: true,
+    featured: false,
+    content: {
+      whatIs: 'The Page Numbers PDF tool inserts clean numerical pagination into headers or footers, making long reports, theses, and legal filings easy to navigate and reference.',
+      howToUse: [
+        'Upload your PDF document.',
+        'Select position: Bottom Center, Bottom Right, or Top Right.',
+        'Select format: "Page 1 of N" or simple numbers "1, 2, 3...".',
+        'Click "Insert Page Numbers & Download".'
+      ],
+      benefits: ['Professional formatting', 'Custom positioning', '100% private client-side processing'],
+      faqs: [
+        {
+          question: 'Can I choose where page numbers appear?',
+          answer: 'Yes! You can choose between Bottom Center, Bottom Right, or Top Right.'
+        }
+      ]
+    },
+    relatedToolIds: ['watermark-pdf', 'merge-pdf', 'split-pdf']
+  },
+  {
+    id: 'pdf-sign-pdf',
+    name: 'Sign PDF (eSign & Digital Signature)',
+    slug: 'sign-pdf',
+    category: 'pdf',
+    description: 'Draw or create your digital signature and stamp it onto agreements, contracts, and PDF documents directly in your browser.',
+    icon: 'PenTool',
+    keywords: [
+      'sign pdf',
+      'esign pdf online',
+      'digital signature pdf',
+      'sign document online free',
+      'ilovepdf sign',
+      'electronic signature pdf'
+    ],
+    seoTitle: 'Sign PDF Online Free – Create & Add Digital Signature to PDF | ToolNest',
+    seoDescription: 'Sign PDF documents online for free. Draw your digital signature on screen and embed it into contracts and forms. 100% private, secure, with no signups.',
+    componentKey: 'sign-pdf',
+    popular: true,
+    featured: true,
+    content: {
+      whatIs: 'The Sign PDF tool allows you to draw your signature with your mouse, trackpad, or touchscreen and stamp it directly into agreements, NDAs, and authorization forms without printing or scanning.',
+      howToUse: [
+        'Upload the PDF document you need to sign.',
+        'Draw your signature in the signature pad.',
+        'Click "Sign & Download Document".',
+        'Download your executed, legally signed PDF immediately.'
+      ],
+      benefits: [
+        'No printing or scanning: Go 100% paperless.',
+        'Touchscreen compatible for smartphones, iPads, and tablets.',
+        '100% Private: Signature and documents stay in local browser memory.'
+      ],
+      faqs: [
+        {
+          question: 'Are electronic signatures on PDF valid?',
+          answer: 'Yes, electronic signatures created through online tools are recognized for most commercial and personal contracts under the ESIGN Act and UETA guidelines.'
+        }
+      ]
+    },
+    relatedToolIds: ['protect-pdf', 'pdf-to-docx', 'watermark-pdf']
+  },
+  {
+    id: 'pdf-jpg-to-pdf',
+    name: 'JPG to PDF Converter (Images to PDF)',
+    slug: 'jpg-to-pdf',
+    category: 'pdf',
+    description: 'Convert JPG, PNG, and camera photos into clean, organized PDF documents with customizable page margins and orientation.',
+    icon: 'Image',
+    keywords: [
+      'jpg to pdf',
+      'convert jpg to pdf',
+      'image to pdf',
+      'photo to pdf converter',
+      'ilovepdf jpg to pdf',
+      'pictures to pdf free'
+    ],
+    seoTitle: 'JPG to PDF Converter Free – Convert Images to PDF Online | ToolNest',
+    seoDescription: 'Convert JPG and PNG photos into high-resolution PDF documents. Custom orientation, margins, zero server uploads, 100% private, and instant free download.',
+    componentKey: 'image-to-pdf',
+    popular: true,
+    featured: true,
+    content: {
+      whatIs: 'The JPG to PDF Converter transforms photo files, mobile camera receipts, and scanned records into standardized, publication-quality PDF documents.',
+      howToUse: [
+        'Upload one or more JPG/PNG image files.',
+        'Select orientation (Portrait or Landscape) and margins.',
+        'Click "Convert to PDF" and download your compiled document.'
+      ],
+      benefits: ['Preserves high resolution', 'Multi-image collation', 'Zero cloud uploads'],
+      faqs: [
+        {
+          question: 'Can I combine multiple pictures into one PDF?',
+          answer: 'Yes! Upload multiple images and they will be sequential pages in a single PDF.'
+        }
+      ]
+    },
+    relatedToolIds: ['compress-pdf', 'merge-pdf', 'image-resizer']
+  },
+  {
+    id: 'pdf-image-resizer',
+    name: 'Image Resizer (Resize by Pixels & Percentage)',
+    slug: 'image-resizer',
+    category: 'pdf',
+    description: 'Resize photos and graphics by exact pixel width/height or percentage while preserving aspect ratio and crisp visual clarity.',
+    icon: 'Maximize2',
+    keywords: [
+      'image resizer',
+      'resize image',
+      'resize photo online',
+      'reduce image resolution',
+      'resize jpg png to 800x600',
+      'image pixel resizer'
+    ],
+    seoTitle: 'Free Image Resizer – Resize Photos by Pixels Online Privately | ToolNest',
+    seoDescription: 'Resize JPG, PNG, and WebP images by exact pixel dimensions or percentage scale. Lock aspect ratio, preserve sharpness, 100% private, and free download.',
+    componentKey: 'image-resizer',
+    popular: true,
+    featured: true,
+    content: {
+      whatIs: 'The Image Resizer lets you alter pixel dimensions of photos, product shots, and digital artwork with high-fidelity bicubic interpolation.',
+      howToUse: [
+        'Upload your image (JPEG, PNG, or WebP).',
+        'Enter target width or height (or choose percentage preset 25%, 50%, 75%).',
+        'Keep "Lock Aspect Ratio" checked to prevent distortion.',
+        'Click "Resize Image" and download.'
+      ],
+      benefits: ['High quality interpolation', 'Aspect ratio locking', '100% private in-browser processing'],
+      faqs: [
+        {
+          question: 'Will resizing distort or stretch my photo?',
+          answer: 'No. When "Lock Aspect Ratio" is enabled, height and width scale proportionally to prevent any image distortion.'
+        }
+      ]
+    },
+    relatedToolIds: ['image-compressor', 'jpg-to-pdf', 'svg-to-png']
+  },
+  {
+    id: 'pdf-png-to-jpg',
+    name: 'PNG to JPG Converter',
+    slug: 'png-to-jpg',
+    category: 'pdf',
+    description: 'Convert transparent PNG images into universal JPG format with clean white background fill and optimized file size.',
+    icon: 'Image',
+    keywords: [
+      'png to jpg',
+      'convert png to jpg',
+      'png to jpeg converter online',
+      'change png to jpg free',
+      'transparent png to jpg'
+    ],
+    seoTitle: 'PNG to JPG Converter Free – Convert PNG to JPEG Online | ToolNest',
+    seoDescription: 'Convert PNG images to JPG format online. High-speed client-side conversion with clean white background fill. 100% private with instant download.',
+    componentKey: 'png-to-jpg',
+    popular: true,
+    featured: false,
+    content: {
+      whatIs: 'The PNG to JPG Converter changes PNG graphics and screenshots into lightweight, universally compatible JPEG files.',
+      howToUse: [
+        'Upload your PNG file.',
+        'Click "Convert Image Format".',
+        'Download your standardized JPG image.'
+      ],
+      benefits: ['Reduces file size', 'Universally compatible', 'Instant browser conversion'],
+      faqs: [
+        {
+          question: 'What happens to the transparent background of a PNG?',
+          answer: 'Since the JPEG format does not support alpha transparency, transparent areas are cleanly filled with a crisp white background.'
+        }
+      ]
+    },
+    relatedToolIds: ['jpg-to-png', 'image-resizer', 'image-compressor']
+  },
+  {
+    id: 'pdf-jpg-to-png',
+    name: 'JPG to PNG Converter',
+    slug: 'jpg-to-png',
+    category: 'pdf',
+    description: 'Convert JPG photos into lossless PNG format with crisp sharpness for graphic design and web publishing.',
+    icon: 'Image',
+    keywords: [
+      'jpg to png',
+      'convert jpg to png',
+      'jpeg to png converter online free',
+      'change photo to png'
+    ],
+    seoTitle: 'JPG to PNG Converter Free – Convert JPEG to PNG Online | ToolNest',
+    seoDescription: 'Convert JPG photos to lossless PNG format in seconds. Maintain maximum color fidelity and sharpness. 100% private with zero server uploads.',
+    componentKey: 'jpg-to-png',
+    popular: true,
+    featured: false,
+    content: {
+      whatIs: 'The JPG to PNG Converter transforms lossy JPEG images into the lossless PNG format, preventing further compression artifacts.',
+      howToUse: [
+        'Upload your JPG image.',
+        'Click "Convert Image Format".',
+        'Download your high-definition PNG.'
+      ],
+      benefits: ['Lossless fidelity', '100% private', 'Instant conversion'],
+      faqs: [
+        {
+          question: 'Does converting JPG to PNG improve its quality?',
+          answer: 'It preserves the current quality losslessly and prevents further degradation when editing or saving repeatedly.'
+        }
+      ]
+    },
+    relatedToolIds: ['png-to-jpg', 'image-resizer', 'jpg-to-pdf']
+  },
+  {
+    id: 'pdf-webp-to-jpg',
+    name: 'WebP to JPG / PNG Converter',
+    slug: 'webp-to-jpg',
+    category: 'pdf',
+    description: 'Convert modern Google WebP images from web pages into standard JPG or PNG images compatible with older software and photo viewers.',
+    icon: 'Image',
+    keywords: [
+      'webp to jpg',
+      'convert webp to jpg',
+      'webp to png',
+      'change webp to jpeg online free'
+    ],
+    seoTitle: 'WebP to JPG Converter Free – Convert WebP to JPEG Online | ToolNest',
+    seoDescription: 'Convert WebP image files to standard JPG or PNG format. Compatible with all photo editors and operating systems. 100% private free download.',
+    componentKey: 'webp-to-jpg',
+    popular: true,
+    featured: false,
+    content: {
+      whatIs: 'The WebP to JPG Converter takes downloaded WebP web graphics and converts them into standard JPG or PNG files that open in Photoshop, older Windows versions, and photo viewers.',
+      howToUse: [
+        'Upload your .webp image.',
+        'Choose JPG or PNG target format.',
+        'Click "Convert Image Format" and download.'
+      ],
+      benefits: ['Opens in all photo viewers', '100% private client-side processing'],
+      faqs: [
+        {
+          question: 'Why do websites use WebP format?',
+          answer: 'WebP is developed by Google for high web compression, but many desktop photo viewers and video editors require standard JPG or PNG.'
+        }
+      ]
+    },
+    relatedToolIds: ['png-to-jpg', 'jpg-to-png', 'image-resizer']
   }
 ];

@@ -90,6 +90,7 @@ import {
   NumberToWordsEngine,
   RomanNumeralEngine,
 } from './converter/ConverterEngines';
+import { SqmmToSqftEngine } from './converter/SqmmToSqftEngine';
 
 // Finance Engines
 import {
@@ -120,6 +121,16 @@ import {
   SvgToPngEngine,
   PasswordStrengthCheckerEngine,
 } from './pdf/PdfEnginesMore';
+
+import {
+  PdfCompressorEngine,
+  PdfProtectEngine,
+  PdfWatermarkEngine,
+  PdfPageNumberEngine,
+  PdfSignEngine,
+  ImageResizerEngine,
+  ImageFormatConverterEngine,
+} from './pdf/PdfEnginesExtended';
 
 // Universal Engines for 1000+ Tools
 import { UniversalPairwiseConverterEngine } from './universal/UniversalPairwiseConverterEngine';
@@ -235,6 +246,14 @@ export const ToolEngineRenderer: React.FC<ToolEngineRendererProps> = ({ tool }) 
   if (slug === 'countdown' || slug === 'stopwatch' || slug === 'world-time') return <PomodoroTimerEngine />;
 
   // 7. Converter Category
+  if (
+    slug === 'sqmm-to-sqft' ||
+    slug === 'sq-mm-to-sq-ft' ||
+    slug === 'sqft-to-sqmm' ||
+    slug === 'sq-ft-to-sq-mm'
+  ) {
+    return <SqmmToSqftEngine />;
+  }
   if (slug === 'temperature') return <TemperatureConverterEngine />;
   if (slug === 'number-to-words') return <NumberToWordsEngine />;
   if (slug === 'roman-numeral') return <RomanNumeralEngine />;
@@ -257,11 +276,20 @@ export const ToolEngineRenderer: React.FC<ToolEngineRendererProps> = ({ tool }) 
 
   // 9. PDF & Document Category
   if (slug === 'pdf-to-docx') return <PdfToDocxEngine />;
-  if (slug === 'pdf-merger') return <PdfMergerEngine />;
+  if (slug === 'pdf-merger' || slug === 'merge-pdf') return <PdfMergerEngine />;
   if (slug === 'pdf-to-text') return <PdfToTextEngine />;
-  if (slug === 'image-to-pdf') return <ImageToPdfEngine />;
-  if (slug === 'pdf-page-rotator') return <PdfPageRotatorEngine />;
-  if (slug === 'pdf-page-splitter') return <PdfPageSplitterEngine />;
+  if (slug === 'image-to-pdf' || slug === 'jpg-to-pdf' || slug === 'png-to-pdf') return <ImageToPdfEngine />;
+  if (slug === 'pdf-page-rotator' || slug === 'rotate-pdf') return <PdfPageRotatorEngine />;
+  if (slug === 'pdf-page-splitter' || slug === 'split-pdf') return <PdfPageSplitterEngine />;
+  if (slug === 'compress-pdf' || slug === 'pdf-compressor') return <PdfCompressorEngine />;
+  if (slug === 'protect-pdf' || slug === 'encrypt-pdf' || slug === 'lock-pdf') return <PdfProtectEngine />;
+  if (slug === 'watermark-pdf' || slug === 'add-watermark-to-pdf') return <PdfWatermarkEngine />;
+  if (slug === 'page-numbers-pdf' || slug === 'add-page-numbers-to-pdf') return <PdfPageNumberEngine />;
+  if (slug === 'sign-pdf' || slug === 'esign-pdf') return <PdfSignEngine />;
+  if (slug === 'image-resizer' || slug === 'resize-image') return <ImageResizerEngine />;
+  if (slug === 'png-to-jpg' || slug === 'jpg-to-png' || slug === 'webp-to-jpg' || slug === 'webp-to-png') {
+    return <ImageFormatConverterEngine defaultTarget={slug} />;
+  }
   if (slug === 'invoice-generator') return <InvoiceGeneratorEngine />;
   if (slug === 'qr-code-generator') return <QrCodeGeneratorEngine />;
   if (slug === 'barcode-generator') return <BarcodeGeneratorEngine />;

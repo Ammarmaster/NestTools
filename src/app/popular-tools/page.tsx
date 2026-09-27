@@ -6,6 +6,7 @@ import { CATEGORIES } from '@/data/categories';
 import { ToolCard } from '@/components/tools/ToolCard';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { DynamicIcon } from '@/components/ui/icon-renderer';
+import { TopAdSlot, BottomAdSlot } from '@/components/ads/AdSlot';
 import { Flame, Sparkles, ShieldCheck, Zap, ArrowRight, Star, HelpCircle } from 'lucide-react';
 
 const currentYear = new Date().getFullYear();
@@ -131,6 +132,9 @@ export default function PopularToolsPage() {
           </div>
         </section>
 
+        {/* Top Banner Ad */}
+        <TopAdSlot />
+
         {/* Popular Tools Grid */}
         <section className="space-y-6">
           <div className="flex items-center justify-between">
@@ -219,6 +223,9 @@ export default function PopularToolsPage() {
             </div>
           </div>
         </section>
+
+        {/* Bottom Ad Unit */}
+        <BottomAdSlot />
       </div>
     </>
   );

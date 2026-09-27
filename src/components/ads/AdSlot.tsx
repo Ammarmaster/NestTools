@@ -29,13 +29,30 @@ export const AdSlot: React.FC<AdSlotProps> = ({
 
   useEffect(() => {
     if (ADS_CONFIG.adSenseClientId && typeof window !== 'undefined') {
-      try {
-        if (window.adsbygoogle) {
-          window.adsbygoogle.push({});
-          setAdSenseReady(true);
+      const tryPush = () => {
+        try {
+          if (window.adsbygoogle) {
+            window.adsbygoogle.push({});
+            setAdSenseReady(true);
+            return true;
+          }
+        } catch {
+          // fallback to native sponsors
         }
-      } catch {
-        // Fallback to native sponsor
+        return false;
+      };
+
+      if (!tryPush()) {
+        const intervalId = setInterval(() => {
+          if (tryPush()) {
+            clearInterval(intervalId);
+          }
+        }, 800);
+        const timeoutId = setTimeout(() => clearInterval(intervalId), 6000);
+        return () => {
+          clearInterval(intervalId);
+          clearTimeout(timeoutId);
+        };
       }
     }
   }, []);

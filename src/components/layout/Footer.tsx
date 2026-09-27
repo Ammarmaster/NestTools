@@ -74,6 +74,26 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/search" className="font-semibold text-indigo-600 dark:text-indigo-400 hover:underline">
+                  🔍 Instant Tool Search
+                </Link>
+              </li>
+              <li>
+                <Link href="/free-pdf-tools" className="text-zinc-600 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400 transition-colors">
+                  PDF & Documents Suite
+                </Link>
+              </li>
+              <li>
+                <Link href="/student-calculators" className="text-zinc-600 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400 transition-colors">
+                  Student CGPA & Study Tools
+                </Link>
+              </li>
+              <li>
+                <Link href="/finance-calculators" className="text-zinc-600 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400 transition-colors">
+                  Salary & Loan Calculators
+                </Link>
+              </li>
+              <li>
                 <Link href="/tools" className="font-semibold text-indigo-600 dark:text-indigo-400">
                   View All 1,000+ Tools &rarr;
                 </Link>
@@ -107,6 +127,11 @@ export const Footer: React.FC = () => {
                   <span>ProDevOpz Ecosystem</span>
                   <ExternalLink className="h-3 w-3" />
                 </a>
+              </li>
+              <li>
+                <Link href="/monetize" className="font-semibold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 hover:underline">
+                  💰 Earn from Ads (Guide)
+                </Link>
               </li>
               <li>
                 <Link href="/about" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">

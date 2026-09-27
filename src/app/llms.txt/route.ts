@@ -18,6 +18,15 @@ export function GET(request: NextRequest) {
 
 ToolNest is an engineering suite developed by Md Jalaluddin Master (Ammar Master) and ProDevOpz (https://prodevopz.jobsio.in). All utilities run directly inside client web browsers using modern web standards (WebAssembly, Canvas, Web Crypto, and TypeScript) without transmitting user files or computations to any external server.
 
+## Curated SEO Hubs & Search Engine
+
+- [Search 1,000+ Tools](${baseUrl}/search): Live searchable directory with keyword tokens and category filters.
+- [Free PDF Tools Suite](${baseUrl}/free-pdf-tools): Full client-side PDF & Image suite: Compress PDF, Protect with Password, Watermark, Sign, Page Numbers, PDF to Word DOCX, Merge, Split, Rotate, Image Resizer, and WebP/PNG/JPG converters.
+- [Student Calculators](${baseUrl}/student-calculators): CGPA to percentage, SGPA, attendance requirement, and Pomodoro study timer.
+- [Developer Utilities](${baseUrl}/developer-utilities): JSON formatter, Base64 encoder/decoder, SQL beautifier, and hash tools.
+- [Finance & Salary Calculators](${baseUrl}/finance-calculators): In-hand salary, home loan EMI, GST tax breakdown, and compound interest.
+- [Universal Unit Converters](${baseUrl}/unit-converters): Bidirectional conversion for length, mass, temperature, speed, and bytes.
+
 ## Tool Categories
 
 ${CATEGORY_LIST.map(

@@ -94,6 +94,18 @@ export const Header: React.FC = () => {
             {/* Desktop Navigation Links */}
             <nav className="hidden md:flex items-center gap-1 pl-4">
               <Link
+                href="/search"
+                className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
+                  pathname === '/search'
+                    ? 'bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-50'
+                    : 'text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-zinc-900'
+                }`}
+              >
+                <Search className="h-4 w-4 text-indigo-500" />
+                <span>Search</span>
+              </Link>
+
+              <Link
                 href="/tools"
                 className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${
                   pathname === '/tools'
@@ -231,6 +243,13 @@ export const Header: React.FC = () => {
           <div className="border-b border-zinc-200 bg-white px-4 py-4 md:hidden dark:border-zinc-800 dark:bg-zinc-950">
             <div className="space-y-3">
               <Link
+                href="/search"
+                className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-zinc-800 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-900"
+              >
+                <Search className="h-4 w-4 text-indigo-500" />
+                <span>Instant Tool Search</span>
+              </Link>
+              <Link
                 href="/tools"
                 className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-zinc-800 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-900"
               >
@@ -238,11 +257,11 @@ export const Header: React.FC = () => {
                 <span>All 1,000+ Tools Directory</span>
               </Link>
               <Link
-                href="/pdf"
+                href="/free-pdf-tools"
                 className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-zinc-800 hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-900"
               >
                 <FileText className="h-4 w-4 text-rose-500" />
-                <span>PDF & Document Tools (New)</span>
+                <span>PDF & Document Suite</span>
               </Link>
               <Link
                 href="/founder"

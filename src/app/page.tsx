@@ -8,6 +8,7 @@ import { ToolCard } from '@/components/tools/ToolCard';
 import { DynamicIcon } from '@/components/ui/icon-renderer';
 import { SearchModal } from '@/components/search/SearchModal';
 import { getRecentTools, RecentToolItem } from '@/lib/storage';
+import { TopAdSlot, ContentAdSlot, BottomAdSlot } from '@/components/ads/AdSlot';
 import {
   Search,
   Sparkles,
@@ -20,6 +21,11 @@ import {
   Wrench,
   Clock,
   ExternalLink,
+  FileText,
+  GraduationCap,
+  Code2,
+  DollarSign,
+  ArrowLeftRight,
 } from 'lucide-react';
 
 export default function HomePage() {
@@ -84,6 +90,99 @@ export default function HomePage() {
                 </kbd>
               </button>
             </div>
+          </div>
+        </section>
+
+        {/* Top Ad Unit */}
+        <TopAdSlot />
+
+        {/* Curated High-Traffic SEO Hubs */}
+        <section className="space-y-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
+                <Sparkles className="h-5 w-5 text-amber-500" />
+                <span>Popular Tool Suites & Search Hubs</span>
+              </h2>
+              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+                Handcrafted collections built for specialized daily workflows
+              </p>
+            </div>
+            <Link
+              href="/search"
+              className="inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 hover:underline dark:text-indigo-400"
+            >
+              <span>Instant Tool Search</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            <Link
+              href="/free-pdf-tools"
+              className="group flex flex-col items-center justify-center rounded-2xl border border-zinc-200 bg-white p-4 text-center transition-all hover:border-rose-300 hover:shadow-xs dark:border-zinc-800 dark:bg-zinc-900/60"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-50 text-rose-600 group-hover:bg-rose-500 group-hover:text-white transition-colors dark:bg-rose-950 dark:text-rose-400">
+                <FileText className="h-5 w-5" />
+              </div>
+              <span className="mt-2 text-xs font-bold text-zinc-900 dark:text-zinc-100">PDF Suite</span>
+              <span className="text-[10px] text-zinc-500">PDF to Word & Merge</span>
+            </Link>
+
+            <Link
+              href="/student-calculators"
+              className="group flex flex-col items-center justify-center rounded-2xl border border-zinc-200 bg-white p-4 text-center transition-all hover:border-amber-300 hover:shadow-xs dark:border-zinc-800 dark:bg-zinc-900/60"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 text-amber-600 group-hover:bg-amber-500 group-hover:text-white transition-colors dark:bg-amber-950 dark:text-amber-400">
+                <GraduationCap className="h-5 w-5" />
+              </div>
+              <span className="mt-2 text-xs font-bold text-zinc-900 dark:text-zinc-100">Student Tools</span>
+              <span className="text-[10px] text-zinc-500">CGPA & Attendance</span>
+            </Link>
+
+            <Link
+              href="/developer-utilities"
+              className="group flex flex-col items-center justify-center rounded-2xl border border-zinc-200 bg-white p-4 text-center transition-all hover:border-indigo-300 hover:shadow-xs dark:border-zinc-800 dark:bg-zinc-900/60"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 group-hover:bg-indigo-500 group-hover:text-white transition-colors dark:bg-indigo-950 dark:text-indigo-400">
+                <Code2 className="h-5 w-5" />
+              </div>
+              <span className="mt-2 text-xs font-bold text-zinc-900 dark:text-zinc-100">Developer</span>
+              <span className="text-[10px] text-zinc-500">JSON, SQL & Base64</span>
+            </Link>
+
+            <Link
+              href="/finance-calculators"
+              className="group flex flex-col items-center justify-center rounded-2xl border border-zinc-200 bg-white p-4 text-center transition-all hover:border-teal-300 hover:shadow-xs dark:border-zinc-800 dark:bg-zinc-900/60"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 text-teal-600 group-hover:bg-teal-500 group-hover:text-white transition-colors dark:bg-teal-950 dark:text-teal-400">
+                <DollarSign className="h-5 w-5" />
+              </div>
+              <span className="mt-2 text-xs font-bold text-zinc-900 dark:text-zinc-100">Salary & EMI</span>
+              <span className="text-[10px] text-zinc-500">In-Hand CTC & Tax</span>
+            </Link>
+
+            <Link
+              href="/unit-converters"
+              className="group flex flex-col items-center justify-center rounded-2xl border border-zinc-200 bg-white p-4 text-center transition-all hover:border-cyan-300 hover:shadow-xs dark:border-zinc-800 dark:bg-zinc-900/60"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-50 text-cyan-600 group-hover:bg-cyan-500 group-hover:text-white transition-colors dark:bg-cyan-950 dark:text-cyan-400">
+                <ArrowLeftRight className="h-5 w-5" />
+              </div>
+              <span className="mt-2 text-xs font-bold text-zinc-900 dark:text-zinc-100">Converters</span>
+              <span className="text-[10px] text-zinc-500">Length, Mass & Temp</span>
+            </Link>
+
+            <Link
+              href="/search"
+              className="group flex flex-col items-center justify-center rounded-2xl border border-indigo-200/90 bg-indigo-50/40 p-4 text-center transition-all hover:border-indigo-400 hover:shadow-xs dark:border-indigo-900/60 dark:bg-indigo-950/30"
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 text-white group-hover:bg-indigo-700 transition-colors shadow-2xs">
+                <Search className="h-5 w-5" />
+              </div>
+              <span className="mt-2 text-xs font-bold text-indigo-700 dark:text-indigo-300">Tool Finder</span>
+              <span className="text-[10px] text-zinc-500">Search 1,000+ Tools</span>
+            </Link>
           </div>
         </section>
 
@@ -191,6 +290,9 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Content Ad Unit */}
+        <ContentAdSlot />
+
         {/* 5. Featured Tools */}
         <section>
           <div className="flex items-center justify-between mb-6">
@@ -260,6 +362,9 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* Bottom Ad Unit */}
+        <BottomAdSlot />
 
         {/* 7. Homepage FAQs */}
         <section className="rounded-3xl border border-zinc-200 bg-white p-8 sm:p-10 dark:border-zinc-800 dark:bg-zinc-900/60">

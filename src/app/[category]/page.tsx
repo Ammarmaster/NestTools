@@ -7,6 +7,7 @@ import { ToolCard } from '@/components/tools/ToolCard';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { DynamicIcon } from '@/components/ui/icon-renderer';
 import { CategoryId } from '@/types/tool';
+import { TopAdSlot, BottomAdSlot } from '@/components/ads/AdSlot';
 
 interface CategoryPageProps {
   params: Promise<{
@@ -123,6 +124,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         </p>
       </div>
 
+      {/* Category Top Ad Placement */}
+      <TopAdSlot />
+
       {/* Tools Grid */}
       <div className="mb-12">
         <div className="flex items-center justify-between mb-6">
@@ -137,6 +141,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           ))}
         </div>
       </div>
+
+      {/* Category Bottom Ad Placement */}
+      <BottomAdSlot />
     </div>
   </>
 );

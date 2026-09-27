@@ -6,6 +6,7 @@ import { ALL_TOOLS } from '@/data/tools';
 import { CATEGORY_LIST, CATEGORIES } from '@/data/categories';
 import { ToolCard } from '@/components/tools/ToolCard';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
+import { TopAdSlot, BottomAdSlot } from '@/components/ads/AdSlot';
 import { Search, Filter, Heart, ArrowDownAZ, Flame, X } from 'lucide-react';
 import { getFavorites } from '@/lib/storage';
 
@@ -82,6 +83,9 @@ function ToolsCatalogContent() {
           Browse all {ALL_TOOLS.length} free browser-based online tools. Search, filter by category, or view your saved favorites.
         </p>
       </div>
+
+      {/* Top Banner Ad */}
+      <TopAdSlot />
 
       {/* Filter and Search Bar */}
       <div className="mb-8 space-y-4">
@@ -196,6 +200,9 @@ function ToolsCatalogContent() {
           ))}
         </div>
       )}
+
+      {/* Bottom Ad Unit */}
+      <BottomAdSlot />
     </div>
   );
 }

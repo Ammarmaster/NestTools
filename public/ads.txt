@@ -1,0 +1,8 @@
+# ==============================================================================
+# Google AdSense Authorized Digital Sellers (ads.txt)
+# Root domain: jobsio.in | Subdomain: toolnest.jobsio.in
+# Publisher Account: pub-2523483363616029 (A Product by ProDevOpz)
+# ==============================================================================
+
+google.com, pub-2523483363616029, DIRECT, f08c47fec0942fa0
+subdomain=toolnest.jobsio.in

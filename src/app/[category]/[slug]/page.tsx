@@ -36,13 +36,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const currentYear = new Date().getFullYear();
-  // CTR Power Title: Adds current year & high-intent trigger to stand out among text-only results
-  let displayTitle = tool.seoTitle;
-  if (!displayTitle.includes(currentYear.toString())) {
-    displayTitle = `${tool.name} (${currentYear}) – Free, Instant & Accurate | ToolNest`;
+  let displayTitle = tool.seoTitle || `${tool.name} (${currentYear}) – Free, Instant & Accurate | ToolNest`;
+  // Only append year if title is short enough (< 50 chars) and doesn't already contain it
+  if (!displayTitle.includes(currentYear.toString()) && displayTitle.length <= 48) {
+    displayTitle = `${displayTitle} (${currentYear})`;
   }
 
-  const displayDescription = `${tool.seoDescription} 100% free, private browser-based tool with instant results and no registration.`;
+  const displayDescription = tool.seoDescription.includes('100% free')
+    ? tool.seoDescription
+    : `${tool.seoDescription} 100% free, private browser-based tool with instant results and no registration.`;
 
   return {
     title: displayTitle,
