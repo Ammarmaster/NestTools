@@ -5,50 +5,55 @@ import { getBaseUrl } from '@/lib/site-config';
 
 export const dynamic = 'force-dynamic';
 
+function escapeXml(unsafe: string): string {
+  return unsafe
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
 export async function GET(request: NextRequest) {
   const host = request.headers.get('x-forwarded-host') || request.headers.get('host');
   const proto = request.headers.get('x-forwarded-proto') || 'https';
   const baseUrl = getBaseUrl(host, proto);
 
-  const currentDate = new Date().toISOString();
+  // W3C date format (YYYY-MM-DD) standard for Google Search Console
+  const currentDate = new Date().toISOString().split('T')[0];
 
-  // Core & High-Intent SEO Searchable Pages
+  // Core high-intent SEO pages
   const staticPages = [
-    { path: '', priority: '1.0', changefreq: 'daily', title: 'ToolNest – 1,000+ Free Online Tools' },
-    { path: '/search', priority: '0.95', changefreq: 'daily', title: 'Search 1,000+ Free Online Tools & Instant Directory' },
-    { path: '/popular-tools', priority: '0.95', changefreq: 'daily', title: 'Top 50 Most Popular Free Online Tools' },
-    { path: '/free-pdf-tools', priority: '0.95', changefreq: 'daily', title: 'Free PDF Tools & Converters Suite (100% Client-Side)' },
-    { path: '/student-calculators', priority: '0.95', changefreq: 'daily', title: 'Free Student Calculators, CGPA, SGPA & Attendance' },
-    { path: '/developer-utilities', priority: '0.95', changefreq: 'daily', title: 'Online Developer Utilities, Formatters & Encoders' },
-    { path: '/finance-calculators', priority: '0.95', changefreq: 'daily', title: 'Free Salary, Loan EMI & Tax Calculators' },
-    { path: '/unit-converters', priority: '0.95', changefreq: 'daily', title: 'Universal Unit Converters - Metric & Imperial' },
-    { path: '/tools', priority: '0.90', changefreq: 'daily', title: 'Tools Directory & Complete Catalog' },
-    { path: '/monetize', priority: '0.85', changefreq: 'weekly', title: 'How to Earn from Ads & Monetize Online Tools' },
-    { path: '/founder', priority: '0.85', changefreq: 'weekly', title: 'Md Jalaluddin Master (Ammar Master) – Founder' },
-    { path: '/ammar-master', priority: '0.85', changefreq: 'weekly', title: 'Ammar Master Profile & Engineering Philosophy' },
-    { path: '/about', priority: '0.70', changefreq: 'monthly', title: 'About ToolNest by ProDevOpz' },
-    { path: '/contact', priority: '0.70', changefreq: 'monthly', title: 'Contact & Feedback – ToolNest' },
-    { path: '/privacy', priority: '0.60', changefreq: 'monthly', title: 'Privacy Policy & Zero Server Data Guarantee' },
-    { path: '/terms', priority: '0.60', changefreq: 'monthly', title: 'Terms of Service – ToolNest' },
-    { path: '/disclaimer', priority: '0.60', changefreq: 'monthly', title: 'Calculator & Disclaimer Policy' },
+    { path: '', priority: '1.0', changefreq: 'daily' },
+    { path: '/search', priority: '0.95', changefreq: 'daily' },
+    { path: '/popular-tools', priority: '0.95', changefreq: 'daily' },
+    { path: '/free-pdf-tools', priority: '0.95', changefreq: 'daily' },
+    { path: '/student-calculators', priority: '0.95', changefreq: 'daily' },
+    { path: '/developer-utilities', priority: '0.95', changefreq: 'daily' },
+    { path: '/finance-calculators', priority: '0.95', changefreq: 'daily' },
+    { path: '/unit-converters', priority: '0.95', changefreq: 'daily' },
+    { path: '/tools', priority: '0.90', changefreq: 'daily' },
+    { path: '/monetize', priority: '0.85', changefreq: 'weekly' },
+    { path: '/founder', priority: '0.85', changefreq: 'weekly' },
+    { path: '/ammar-master', priority: '0.85', changefreq: 'weekly' },
+    { path: '/about', priority: '0.70', changefreq: 'monthly' },
+    { path: '/contact', priority: '0.70', changefreq: 'monthly' },
+    { path: '/privacy', priority: '0.60', changefreq: 'monthly' },
+    { path: '/terms', priority: '0.60', changefreq: 'monthly' },
+    { path: '/disclaimer', priority: '0.60', changefreq: 'monthly' },
   ];
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 `;
 
-  // 1. Core Pages
+  // 1. Core High-Priority Pages
   for (const page of staticPages) {
     xml += `  <url>
-    <loc>${baseUrl}${page.path}</loc>
+    <loc>${escapeXml(`${baseUrl}${page.path}`)}</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
-    <image:image>
-      <image:loc>${baseUrl}/logo.png</image:loc>
-      <image:title>${page.title}</image:title>
-    </image:image>
   </url>
 `;
   }
@@ -56,15 +61,10 @@ export async function GET(request: NextRequest) {
   // 2. Category Hubs (Daily high priority)
   for (const cat of CATEGORY_LIST) {
     xml += `  <url>
-    <loc>${baseUrl}/${cat.slug}</loc>
+    <loc>${escapeXml(`${baseUrl}/${cat.slug}`)}</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <image:image>
-      <image:loc>${baseUrl}/logo.png</image:loc>
-      <image:title>${cat.name} - Free Online Tools</image:title>
-      <image:caption>${cat.description}</image:caption>
-    </image:image>
+    <priority>0.90</priority>
   </url>
 `;
   }
@@ -74,15 +74,10 @@ export async function GET(request: NextRequest) {
     const priority = tool.popular ? '0.85' : '0.80';
     const changefreq = tool.popular ? 'daily' : 'weekly';
     xml += `  <url>
-    <loc>${baseUrl}/${tool.category}/${tool.slug}</loc>
+    <loc>${escapeXml(`${baseUrl}/${tool.category}/${tool.slug}`)}</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-    <image:image>
-      <image:loc>${baseUrl}/logo.png</image:loc>
-      <image:title>${tool.name} - Free Online Tool</image:title>
-      <image:caption>${tool.description}</image:caption>
-    </image:image>
   </url>
 `;
   }
@@ -93,6 +88,7 @@ export async function GET(request: NextRequest) {
     status: 200,
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
+      'X-Content-Type-Options': 'nosniff',
       'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400',
     },
   });
