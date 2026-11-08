@@ -22,6 +22,7 @@ import {
   Cpu
 } from 'lucide-react';
 import { getBaseUrl } from '@/lib/site-config';
+import { personId, personSchema } from '@/lib/founder';
 
 const baseUrl = getBaseUrl();
 
@@ -100,48 +101,10 @@ export default function FounderPage() {
             url: 'https://prodevopz.jobsio.in',
           },
         },
-        about: { '@id': `${baseUrl}/founder#person` },
-        mainEntity: { '@id': `${baseUrl}/founder#person` },
+        about: { '@id': personId(baseUrl) },
+        mainEntity: { '@id': personId(baseUrl) },
       },
-      {
-        '@type': 'Person',
-        '@id': `${baseUrl}/founder#person`,
-        name: 'Mohammad Jalaluddin Master',
-        alternateName: [
-          'Ammar Master',
-          'Md Jalaluddin Master',
-          'Jalaluddin Master',
-          'Ammar',
-        ],
-        givenName: 'Mohammad Jalaluddin',
-        familyName: 'Master',
-        additionalName: 'Ammar',
-        jobTitle: 'Founder & Chief Product Architect',
-        image: `${baseUrl}/images/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg`,
-        description:
-          'Ammar Master (Mohammad Jalaluddin Master) is a software engineer, systems architect, and founder of ToolNest and lead at ProDevOpz (prodevopz.jobsio.in), pioneering client-side privacy-first web utility software.',
-        url: `${baseUrl}/founder`,
-        worksFor: {
-          '@type': 'Organization',
-          name: 'ProDevOpz',
-          url: 'https://prodevopz.jobsio.in',
-        },
-        knowsAbout: [
-          'Full-Stack Web Architecture',
-          'Client-Side Cryptography',
-          'PDF & Document Processing (OpenXML)',
-          'Next.js & React Performance Optimization',
-          'Search Engine Optimization (SEO)',
-          'High-Performance Frontend Systems',
-          'Developer Productivity Tools',
-          'Cloud & DevOps',
-        ],
-        sameAs: [
-          'https://prodevopz.jobsio.in',
-          'https://github.com/Ammarmaster',
-          `${baseUrl}/ammar-master`,
-        ],
-      },
+      personSchema(baseUrl),
       {
         '@type': 'FAQPage',
         mainEntity: [
@@ -270,22 +233,13 @@ export default function FounderPage() {
                   <span>Email Founder</span>
                 </a>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/Ammarmaster"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 rounded-xl border border-zinc-200 bg-white px-3 py-1.5 text-xs font-semibold text-zinc-700 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
                 >
                   <Code2 className="h-3.5 w-3.5 text-zinc-700 dark:text-zinc-300" />
                   <span>GitHub</span>
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 rounded-xl border border-zinc-200 bg-white px-3 py-1.5 text-xs font-semibold text-zinc-700 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
-                >
-                  <Globe className="h-3.5 w-3.5 text-blue-500" />
-                  <span>LinkedIn</span>
                 </a>
               </div>
             </div>

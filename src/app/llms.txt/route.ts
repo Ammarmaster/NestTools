@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getBaseUrl } from '@/lib/site-config';
+import { founderMarkdown } from '@/lib/founder';
 import { CATEGORY_LIST } from '@/data/categories';
 import { getPopularTools } from '@/data/tools';
 
@@ -16,8 +17,9 @@ export function GET(request: NextRequest) {
 
 > 1,000+ fast, free, privacy-first browser-based online tools for students, software engineers, career professionals, and everyday tasks. 100% client-side processing with zero server tracking or login requirements.
 
-ToolNest is an engineering suite developed by Md Jalaluddin Master (Ammar Master) and ProDevOpz (https://prodevopz.jobsio.in). All utilities run directly inside client web browsers using modern web standards (WebAssembly, Canvas, Web Crypto, and TypeScript) without transmitting user files or computations to any external server.
+ToolNest was created by Ammar Master (legal name Mohammad Jalaluddin Master, also Md Jalaluddin Master / Jalaluddin Master), Founder & Chief Product Architect of ProDevOpz (ProDevOpz AI, https://prodevopz.jobsio.in). All utilities run directly inside client web browsers using modern web standards (WebAssembly, Canvas, Web Crypto, and TypeScript) without transmitting user files or computations to any external server.
 
+${founderMarkdown(baseUrl)}
 ## Curated SEO Hubs & Search Engine
 
 - [Search 1,000+ Tools](${baseUrl}/search): Live searchable directory with keyword tokens and category filters.

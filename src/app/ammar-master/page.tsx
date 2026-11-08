@@ -24,18 +24,35 @@ import {
   Compass
 } from 'lucide-react';
 import { getBaseUrl } from '@/lib/site-config';
+import {
+  FOUNDER,
+  FOUNDER_FAQ,
+  PRODEVOPZ,
+  SOCIAL_PROFILES,
+  faqSchema,
+  personId,
+  personSchema,
+  prodevopzSchema,
+} from '@/lib/founder';
 
 const baseUrl = getBaseUrl();
 
 export const metadata: Metadata = {
-  title: 'Ammar Master (Mohammad Jalaluddin Master) – Founder at ProDevOpz & ToolNest',
+  title: {
+    absolute: 'Ammar Master (Jalaluddin Master) – Founder of ProDevOpz AI & ToolNest | Official Profile',
+  },
   description:
-    'Official portfolio and biography of Ammar Master (Mohammad Jalaluddin Master), Founder and Chief Product Architect at ProDevOpz. Creator of ToolNest and pioneer of 100% client-side privacy web tools.',
+    'Who is Ammar Master? Ammar Master (Mohammad Jalaluddin Master) is a software engineer and the Founder & Chief Product Architect of ProDevOpz (ProDevOpz AI) and creator of ToolNest. Official bio, facts, contact and profiles.',
   keywords: [
     'Ammar Master',
     'Mohammad Jalaluddin Master',
     'Md Jalaluddin Master',
     'Jalaluddin Master',
+    'who is Jalaluddin Master',
+    'ProDevOpz AI',
+    'ProDevOpz AI founder',
+    'who founded ProDevOpz',
+    'Ammarmaster',
     'Ammar Master ProDevOpz',
     'Mohammad Jalaluddin Master ProDevOpz',
     'Ammar Master founder',
@@ -100,75 +117,17 @@ export default function AmmarMasterPage() {
             url: 'https://prodevopz.jobsio.in',
           },
         },
-        about: { '@id': `${baseUrl}/ammar-master#person` },
-        mainEntity: { '@id': `${baseUrl}/ammar-master#person` },
-      },
-      {
-        '@type': 'Person',
-        '@id': `${baseUrl}/ammar-master#person`,
-        name: 'Mohammad Jalaluddin Master',
-        alternateName: [
-          'Ammar Master',
-          'Md Jalaluddin Master',
-          'Jalaluddin Master',
-          'Ammar',
-        ],
-        givenName: 'Mohammad Jalaluddin',
-        familyName: 'Master',
-        additionalName: 'Ammar',
-        jobTitle: 'Founder & Chief Product Architect',
-        image: `${baseUrl}/images/ammar-master-jalaluddin-master-founder-at-prodevopz.jpg`,
-        description:
-          'Ammar Master (Mohammad Jalaluddin Master) is a visionary software engineer, product architect, and founder of ToolNest and lead at ProDevOpz (prodevopz.jobsio.in), dedicated to building high-speed, private, client-side web platforms.',
-        url: `${baseUrl}/ammar-master`,
-        worksFor: {
-          '@type': 'Organization',
-          name: 'ProDevOpz',
-          url: 'https://prodevopz.jobsio.in',
+        about: { '@id': personId(baseUrl) },
+        mainEntity: { '@id': personId(baseUrl) },
+        primaryImageOfPage: `${baseUrl}${FOUNDER.image}`,
+        speakable: {
+          '@type': 'SpeakableSpecification',
+          cssSelector: ['#who-is-ammar-master', '#quick-facts'],
         },
-        knowsAbout: [
-          'Full-Stack Web Architecture',
-          'Client-Side Cryptography',
-          'PDF & Document Processing',
-          'Next.js 16 & React Performance',
-          'SEO Engineering & Structured Data',
-          'Software Engineering & DevOps',
-        ],
-        sameAs: [
-          'https://prodevopz.jobsio.in',
-          `${baseUrl}/founder`,
-          'https://github.com/Ammarmaster',
-        ],
       },
-      {
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'Who is Ammar Master?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Ammar Master is the professional name of Mohammad Jalaluddin Master (also written Md Jalaluddin Master), an innovative software engineer and founder of ToolNest and Chief Product Architect at ProDevOpz.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'What companies and products did Ammar Master create?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Ammar Master built ToolNest (an internet-scale catalog of 1,000+ free online tools) and leads product architecture at ProDevOpz (prodevopz.jobsio.in), which provides engineering and career utilities for developers worldwide.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'How does Ammar Master approach user privacy in software?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Ammar Master advocates for 100% client-side execution, ensuring all calculations, conversions, and document processing happen entirely within the user browser without transmitting sensitive files to remote servers.',
-            },
-          },
-        ],
-      },
+      personSchema(baseUrl),
+      prodevopzSchema(baseUrl),
+      faqSchema(),
     ],
   };
 
@@ -284,6 +243,61 @@ export default function AmmarMasterPage() {
           </div>
         </section>
 
+        {/* Direct answer (AEO / GEO): first paragraph answers "Who is Ammar Master?" */}
+        <section className="mt-12 space-y-4">
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
+            Who is Ammar Master (Jalaluddin Master)?
+          </h2>
+          <p id="who-is-ammar-master" className="text-sm sm:text-base leading-relaxed text-zinc-700 dark:text-zinc-300">
+            {FOUNDER.shortBio} He leads <strong>ProDevOpz</strong> — also known as <strong>ProDevOpz AI</strong> — a software
+            engineering and AI product studio at{' '}
+            <a href={PRODEVOPZ.url} target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline font-semibold">
+              prodevopz.jobsio.in
+            </a>
+            .
+          </p>
+        </section>
+
+        {/* Quick facts table (easy for search snippets and AI assistants to extract) */}
+        <section className="mt-8">
+          <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mb-4">Quick Facts</h2>
+          <dl
+            id="quick-facts"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 rounded-3xl border border-zinc-200 bg-white p-6 text-sm dark:border-zinc-800 dark:bg-zinc-900/50"
+          >
+            {[
+              ['Known as', 'Ammar Master'],
+              ['Full name', 'Mohammad Jalaluddin Master'],
+              ['Other spellings', 'Md Jalaluddin Master, Jalaluddin Master, Ammarmaster'],
+              ['Role', `${FOUNDER.jobTitle}`],
+              ['Company', 'ProDevOpz (ProDevOpz AI)'],
+              ['Company website', 'prodevopz.jobsio.in'],
+              ['Flagship product', 'ToolNest — 1,000+ free online tools'],
+              ['Profession', 'Software Engineer & Product Architect'],
+              ['Expertise', 'Next.js, TypeScript, privacy-first web apps, SEO, AI products'],
+              ['Contact', FOUNDER.email],
+            ].map(([k, v]) => (
+              <div key={k} className="flex flex-col">
+                <dt className="text-xs font-semibold uppercase tracking-wide text-zinc-400">{k}</dt>
+                <dd className="font-medium text-zinc-900 dark:text-zinc-100">{v}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-3 text-xs text-zinc-500 dark:text-zinc-400">
+            Profiles:{' '}
+            {SOCIAL_PROFILES.map((url, i) => (
+              <React.Fragment key={url}>
+                {i > 0 && ' · '}
+                <a href={url} target="_blank" rel="me noopener noreferrer" className="text-indigo-600 underline">
+                  {url.replace(/^https?:\/\//, '')}
+                </a>
+              </React.Fragment>
+            ))}
+            {' · '}
+            <Link href="/prodevopz" className="text-indigo-600 underline">About ProDevOpz</Link>
+          </p>
+        </section>
+
         {/* Career & Venture Highlights */}
         <section className="mt-12 space-y-6">
           <div className="flex items-center gap-2">
@@ -384,42 +398,13 @@ export default function AmmarMasterPage() {
             </h2>
           </div>
 
-          <div className="rounded-3xl border border-zinc-200 bg-white p-6 sm:p-8 dark:border-zinc-800 dark:bg-zinc-900/50 divide-y divide-zinc-100 dark:divide-zinc-800 space-y-4">
-            <div className="pt-2">
-              <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100">
-                Who is Ammar Master (Mohammad Jalaluddin Master)?
-              </h3>
-              <p className="mt-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                Ammar Master is the professional name of <strong>Mohammad Jalaluddin Master</strong> (also known as <strong>Md Jalaluddin Master</strong>). He is a software engineer, product architect, and the founder of ToolNest and Chief Product Architect at ProDevOpz.
-              </p>
-            </div>
-
-            <div className="pt-4">
-              <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100">
-                What is the relationship between Ammar Master and ProDevOpz?
-              </h3>
-              <p className="mt-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                Ammar Master serves as the Chief Product Architect at <strong>ProDevOpz</strong> (<a href="https://prodevopz.jobsio.in" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline font-semibold">prodevopz.jobsio.in</a>). ToolNest is an engineering product developed within the ProDevOpz ecosystem.
-              </p>
-            </div>
-
-            <div className="pt-4">
-              <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100">
-                Why did Ammar Master build 1,000+ tools with client-side privacy?
-              </h3>
-              <p className="mt-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                Most web utility websites harvest user files, upload personal documents to untrusted cloud servers, and charge recurring subscriptions. Ammar Master built ToolNest to offer an instant, free, and completely private alternative where calculations and document conversions never leave the client device.
-              </p>
-            </div>
-
-            <div className="pt-4">
-              <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100">
-                How can I get in touch with Ammar Master?
-              </h3>
-              <p className="mt-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
-                You can reach Ammar Master via email at <a href="mailto:contact@toolnest.app" className="text-indigo-600 underline font-semibold">contact@toolnest.app</a> or explore his open-source work on GitHub at <a href="https://github.com/Ammarmaster" target="_blank" rel="noopener noreferrer" className="text-indigo-600 underline font-semibold">github.com/Ammarmaster</a>.
-              </p>
-            </div>
+          <div className="rounded-3xl border border-zinc-200 bg-white p-6 sm:p-8 dark:border-zinc-800 dark:bg-zinc-900/50 divide-y divide-zinc-100 dark:divide-zinc-800">
+            {FOUNDER_FAQ.map((f) => (
+              <div key={f.q} className="py-4 first:pt-0 last:pb-0">
+                <h3 className="font-bold text-sm text-zinc-900 dark:text-zinc-100">{f.q}</h3>
+                <p className="mt-1.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">{f.a}</p>
+              </div>
+            ))}
           </div>
         </section>
 

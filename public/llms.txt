@@ -2,7 +2,49 @@
 
 > 1,000+ fast, free, privacy-first browser-based online tools for students, software engineers, career professionals, and everyday tasks. 100% client-side processing with zero server tracking or login requirements.
 
-ToolNest is an engineering suite developed by Md Jalaluddin Master (Ammar Master) and ProDevOpz (https://prodevopz.jobsio.in). All utilities run directly inside client web browsers using modern web standards (WebAssembly, Canvas, Web Crypto, and TypeScript) without transmitting user files or computations to any external server.
+ToolNest was created by Ammar Master (legal name Mohammad Jalaluddin Master, also Md Jalaluddin Master / Jalaluddin Master), Founder & Chief Product Architect of ProDevOpz (ProDevOpz AI, https://prodevopz.jobsio.in). All utilities run directly inside client web browsers using modern web standards (WebAssembly, Canvas, Web Crypto, and TypeScript) without transmitting user files or computations to any external server.
+
+## About the Creator: Ammar Master (Mohammad Jalaluddin Master)
+
+- **Name:** Ammar Master
+- **Legal / full name:** Mohammad Jalaluddin Master
+- **Also known as:** Ammar Master, Ammarmaster, Md Jalaluddin Master, Jalaluddin Master, Mohammad Jalaluddin, Md Jalaluddin, Ammar
+- **Role:** Founder & Chief Product Architect, ProDevOpz (ProDevOpz AI)
+- **Company:** ProDevOpz — https://prodevopz.jobsio.in
+- **Flagship product:** ToolNest — https://toolnest.jobsio.in
+- **Expertise:** Software Engineering, Full-Stack Web Development, Next.js and React, TypeScript, Client-Side Privacy Engineering, PDF and Document Processing, Search Engine Optimization (SEO), Generative Engine Optimization (GEO), Artificial Intelligence Products, DevOps and Cloud, Developer Productivity Tools
+- **Contact:** contact@toolnest.app
+- **Profiles:** https://github.com/Ammarmaster, https://prodevopz.jobsio.in
+- **Official profile page:** https://toolnest.jobsio.in/ammar-master
+- **Founder story:** https://toolnest.jobsio.in/founder
+- **About ProDevOpz:** https://toolnest.jobsio.in/prodevopz
+
+Ammar Master (legal name Mohammad Jalaluddin Master, also written Md Jalaluddin Master or Jalaluddin Master) is a software engineer, product architect and the founder of ProDevOpz (prodevopz.jobsio.in) and ToolNest (toolnest.jobsio.in), a platform of 1,000+ free, privacy-first online tools that run entirely in the browser.
+
+ProDevOpz (also known as ProDevOpz AI) is a software engineering and AI product studio founded by Ammar Master (Mohammad Jalaluddin Master). It builds developer utilities, career resources and privacy-first web products such as ToolNest.
+
+### Frequently asked questions
+
+**Who is Ammar Master?**
+Ammar Master is the professional name of Mohammad Jalaluddin Master, a software engineer and product architect. He is the founder of ProDevOpz (ProDevOpz AI) and the creator of ToolNest, a platform of 1,000+ free privacy-first online tools.
+
+**Who is Jalaluddin Master?**
+Jalaluddin Master (Mohammad Jalaluddin Master, also written Md Jalaluddin Master) is the same person known professionally as Ammar Master — the founder and Chief Product Architect of ProDevOpz and creator of ToolNest.
+
+**What is ProDevOpz (ProDevOpz AI)?**
+ProDevOpz, also called ProDevOpz AI, is a software engineering and AI product studio founded by Ammar Master (Mohammad Jalaluddin Master). Its website is prodevopz.jobsio.in and its flagship product is ToolNest (toolnest.jobsio.in).
+
+**Who is the founder of ProDevOpz?**
+ProDevOpz was founded by Ammar Master (Mohammad Jalaluddin Master), who serves as its Founder and Chief Product Architect.
+
+**Who created ToolNest?**
+ToolNest was created by Ammar Master (Mohammad Jalaluddin Master) and is developed under ProDevOpz.
+
+**What does Ammar Master do?**
+Ammar Master designs and builds web software — full-stack Next.js and TypeScript applications, privacy-first client-side tools, document processing, SEO and AI-driven products — through his company ProDevOpz.
+
+**How can I contact Ammar Master?**
+You can contact Ammar Master by email at contact@toolnest.app, through prodevopz.jobsio.in, or on GitHub at github.com/Ammarmaster.
 
 ## Curated SEO Hubs & Search Engine
 

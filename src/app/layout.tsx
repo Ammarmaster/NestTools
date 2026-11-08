@@ -9,6 +9,7 @@ import { Footer } from '@/components/layout/Footer';
 import { MobileBottomNav } from '@/components/layout/MobileBottomNav';
 import { getBaseUrl } from '@/lib/site-config';
 import { ADS_CONFIG } from '@/lib/ads-config';
+import { personId, personSchema, prodevopzSchema, toolnestId, toolnestSchema, websiteId } from '@/lib/founder';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -49,12 +50,15 @@ export const metadata: Metadata = {
     'word counter',
     'career tools',
     'prodevopz',
+    'prodevopz ai',
+    'ammar master',
+    'jalaluddin master',
   ],
   authors: [
-    { name: 'Md Jalaluddin Master (Ammar Master)', url: `${siteUrl}/founder` },
+    { name: 'Ammar Master (Mohammad Jalaluddin Master)', url: `${siteUrl}/ammar-master` },
     { name: 'ProDevOpz', url: 'https://prodevopz.jobsio.in' }
   ],
-  creator: 'Md Jalaluddin Master (Ammar Master)',
+  creator: 'Ammar Master (Mohammad Jalaluddin Master)',
   publisher: 'ProDevOpz (prodevopz.jobsio.in)',
   alternates: {
     canonical: '/',
@@ -123,40 +127,33 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const websiteSchema = {
+  // One linked entity graph on every page: WebSite -> ToolNest -> ProDevOpz -> Ammar Master
+  const entityGraph = {
     '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'ToolNest',
-    alternateName: ['Tool Nest', 'ToolNest Free Online Tools', 'ToolNest by ProDevOpz'],
-    url: siteUrl,
-    description: '1,000+ fast, free browser-based online tools for students, developers, and career tasks with zero server tracking.',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${siteUrl}/tools?search={search_term_string}`,
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': websiteId(siteUrl),
+        name: 'ToolNest',
+        alternateName: ['Tool Nest', 'ToolNest Free Online Tools', 'ToolNest by ProDevOpz'],
+        url: siteUrl,
+        description: '1,000+ fast, free browser-based online tools for students, developers, and career tasks with zero server tracking.',
+        inLanguage: 'en',
+        publisher: { '@id': toolnestId(siteUrl) },
+        creator: { '@id': personId(siteUrl) },
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: `${siteUrl}/tools?search={search_term_string}`,
+          },
+          'query-input': 'required name=search_term_string',
+        },
       },
-      'query-input': 'required name=search_term_string',
-    },
-  };
-
-  const organizationSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'ToolNest',
-    url: siteUrl,
-    logo: `${siteUrl}/logo.png`,
-    founder: {
-      '@type': 'Person',
-      name: 'Md Jalaluddin Master',
-      alternateName: 'Ammar Master',
-      url: `${siteUrl}/founder`,
-    },
-    parentOrganization: {
-      '@type': 'Organization',
-      name: 'ProDevOpz',
-      url: 'https://prodevopz.jobsio.in',
-    },
+      toolnestSchema(siteUrl),
+      prodevopzSchema(siteUrl),
+      personSchema(siteUrl),
+    ],
   };
 
   return (
@@ -171,12 +168,11 @@ export default function RootLayout({
         )}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(entityGraph) }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
+        <link rel="author" href="/ammar-master" />
+        <link rel="me" href="https://github.com/Ammarmaster" />
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM summary" />
       </head>
       <body className="min-h-full flex flex-col bg-white text-zinc-900 selection:bg-indigo-500/20 selection:text-indigo-600 dark:bg-zinc-950 dark:text-zinc-100 font-sans pb-20 md:pb-0">
         <ThemeProvider>

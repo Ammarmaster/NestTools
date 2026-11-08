@@ -7,21 +7,9 @@ interface JsonLdProps {
   tool: ToolDefinition;
 }
 
-function getToolRating(toolId: string) {
-  let hash = 0;
-  for (let i = 0; i < toolId.length; i++) {
-    hash = (hash << 5) - hash + toolId.charCodeAt(i);
-    hash |= 0;
-  }
-  const ratingValue = (4.8 + (Math.abs(hash) % 20) / 100).toFixed(1); // 4.8 or 4.9
-  const ratingCount = 350 + (Math.abs(hash) % 1200); // 350 to 1550 reviews
-  return { ratingValue, ratingCount: ratingCount.toString() };
-}
-
 export const ToolJsonLd: React.FC<JsonLdProps> = ({ tool }) => {
   const baseUrl = getBaseUrl();
   const cat = CATEGORIES[tool.category];
-  const { ratingValue, ratingCount } = getToolRating(tool.id);
 
   // 1. SoftwareApplication Schema with AggregateRating & Free Offer
   const appSchema = {
@@ -37,13 +25,7 @@ export const ToolJsonLd: React.FC<JsonLdProps> = ({ tool }) => {
     browserRequirements: 'Requires JavaScript. Requires HTML5.',
     softwareVersion: '2026.1',
     isAccessibleForFree: true,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue,
-      ratingCount,
-      bestRating: '5',
-      worstRating: '1',
-    },
+    // NOTE: no aggregateRating — Google penalises review markup that isn't backed by real user reviews.
     offers: {
       '@type': 'Offer',
       price: '0',

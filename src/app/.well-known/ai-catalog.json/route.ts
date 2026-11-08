@@ -19,7 +19,18 @@ export function GET(request: NextRequest) {
     publisher: {
       name: 'ProDevOpz',
       url: 'https://prodevopz.jobsio.in',
-      founder: 'Md Jalaluddin Master (Ammar Master)',
+      alternateNames: ['ProDevOpz AI', 'Prodevopz'],
+      founder: 'Ammar Master (Mohammad Jalaluddin Master)',
+    },
+    creator: {
+      name: 'Ammar Master',
+      legalName: 'Mohammad Jalaluddin Master',
+      alternateNames: ['Md Jalaluddin Master', 'Jalaluddin Master', 'Ammarmaster'],
+      role: 'Founder & Chief Product Architect, ProDevOpz',
+      profile: `${baseUrl}/ammar-master`,
+      company: `${baseUrl}/prodevopz`,
+      github: 'https://github.com/Ammarmaster',
+      email: 'contact@toolnest.app',
     },
     resources: {
       llmsTxt: `${baseUrl}/llms.txt`,

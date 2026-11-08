@@ -118,6 +118,11 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/prodevopz" className="text-zinc-600 hover:text-indigo-600 dark:text-zinc-400 dark:hover:text-indigo-400 transition-colors">
+                  About ProDevOpz (ProDevOpz AI)
+                </Link>
+              </li>
+              <li>
                 <a
                   href="https://prodevopz.jobsio.in"
                   target="_blank"

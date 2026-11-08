@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getBaseUrl } from '@/lib/site-config';
+import { founderMarkdown } from '@/lib/founder';
 import { CATEGORY_LIST } from '@/data/categories';
 import { ALL_TOOLS, getToolsByCategory } from '@/data/tools';
 
@@ -18,6 +19,7 @@ Total Available Tools: ${ALL_TOOLS.length}
 Execution Model: 100% Client-Side WebAssembly / JavaScript
 Server Dependency: None (Zero tracking, zero storage)
 
+${founderMarkdown(baseUrl)}
 `;
 
   for (const cat of CATEGORY_LIST) {
